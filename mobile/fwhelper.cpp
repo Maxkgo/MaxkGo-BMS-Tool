@@ -1,9 +1,13 @@
 /*
-    Original copyright 2018 Benjamin Vedder	benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
+    Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -91,7 +95,7 @@ QVariantMap FwHelper::getBootloaders(QString hw)
     return bls;
 }
 
-bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootloader, bool checkName)
+bool FwHelper::uploadFirmware(QString filename, BMSInterface *dieBieMS, bool isBootloader, bool checkName)
 {
     // TODO: Should this be removed on android?
     if (filename.startsWith("file:/")) {
@@ -103,14 +107,14 @@ bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootl
     QFileInfo fileInfo(filename);
 
     if (checkName) {
-        if (!(fileInfo.fileName().startsWith("DieBie")) || !fileInfo.fileName().endsWith(".bin")) {
-            vesc->emitMessageDialog(tr("Upload Error"),tr("The selected file name seems to be invalid."),false, false);
+        if (!(fileInfo.fileName().startsWith("ENNOID")) || !fileInfo.fileName().endsWith(".bin")) {
+            dieBieMS->emitMessageDialog(tr("Upload Error"),tr("The selected file name seems to be invalid."),false, false);
             return false;
         }
     }
 
     if (!file.open(QIODevice::ReadOnly)) {
-        vesc->emitMessageDialog(tr("Upload Error"),
+        dieBieMS->emitMessageDialog(tr("Upload Error"),
                                 tr("Could not open file. Make sure that the path is valid."),
                                 false);
         qDebug() << fileInfo.fileName() << fileInfo.absolutePath();
@@ -118,14 +122,14 @@ bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootl
     }
 
     if (file.size() > 400000) {
-        vesc->emitMessageDialog(tr("Upload Error"),
+        dieBieMS->emitMessageDialog(tr("Upload Error"),
                                 tr("The selected file is too large to be a firmware."),
                                 false);
         return false;
     }
 
     QByteArray data = file.readAll();
-    vesc->commands()->startFirmwareUpload(data, isBootloader);
+    dieBieMS->commands()->startFirmwareUpload(data, isBootloader);
 
     return true;
 }

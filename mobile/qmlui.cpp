@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -31,18 +35,18 @@ QmlUi::QmlUi(QObject *parent) : QObject(parent)
 
 bool QmlUi::startQmlUi()
 {
-    qmlRegisterSingletonType<BMSInterface>("Vedder.vesc.BMSInterface", 1, 0, "VescIf", BMSInterface_singletontype_provider);
-    qmlRegisterSingletonType<Utility>("Vedder.vesc.utility", 1, 0, "Utility", utility_singletontype_provider);
-    qmlRegisterType<BleUart>("Vedder.vesc.bleuart", 1, 0, "BleUart");
-    qmlRegisterType<Commands>("Vedder.vesc.commands", 1, 0, "Commands");
-    qmlRegisterType<ConfigParams>("Vedder.vesc.configparams", 1, 0, "ConfigParams");
-    qmlRegisterType<FwHelper>("Vedder.vesc.fwhelper", 1, 0, "FwHelper");
+    qmlRegisterSingletonType<BMSInterface>("Ennoid.bmsinterface", 1, 0, "VescIf", BMSinterface_singletontype_provider);
+    qmlRegisterSingletonType<Utility>("Ennoid.utility", 1, 0, "Utility", utility_singletontype_provider);
+    qmlRegisterType<BleUart>("Ennoid.bleuart", 1, 0, "BleUart");
+    qmlRegisterType<Commands>("Ennoid.commands", 1, 0, "Commands");
+    qmlRegisterType<ConfigParams>("Ennoid.configparams", 1, 0, "ConfigParams");
+    qmlRegisterType<FwHelper>("Ennoid.fwhelper", 1, 0, "FwHelper");
 
     mEngine->load(QUrl(QLatin1String("qrc:/mobile/main.qml")));
     return !mEngine->rootObjects().isEmpty();
 }
 
-QObject *QmlUi::BMSInterface_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
+QObject *QmlUi::BMSinterface_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine)
 {
     (void)engine;
     (void)scriptEngine;

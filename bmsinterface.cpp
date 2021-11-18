@@ -1,9 +1,13 @@
 ﻿/*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,8 +29,9 @@
 #include <QFileInfo>
 #include <QThread>
 #include <QEventLoop>
-#include <QSettings>
 #include <utility.h>
+#include <cmath>
+#include <QRegularExpression>
 
 #ifdef HAS_SERIALPORT
 #include <QSerialPortInfo>
@@ -34,6 +39,7 @@
 
 BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
 {
+
     mbmsConfig = new ConfigParams(this);
     mInfoConfig = new ConfigParams(this);
     mPacket = new Packet(this);
@@ -51,6 +57,8 @@ BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
     mTimer->start();
 
     mLastConnType = static_cast<conn_t>(QSettings().value("connection_type", CONN_NONE).toInt());
+    mLastTcpServer = mSettings.value("tcp_server", "127.0.0.1").toString();
+    mLastTcpPort = mSettings.value("tcp_port", 65102).toInt();
 
     mSendCanBefore = false;
     mCanIdBefore = 0;
@@ -80,6 +88,7 @@ BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
     connect(mTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT(tcpInputError(QAbstractSocket::SocketError)));
 
     // BLE
+
     mBleUart = new BleUart(this);
     mLastBleAddr = QSettings().value("ble_addr").toString();
 
@@ -191,6 +200,47 @@ bool BMSInterface::fwRx()
     return mFwVersionReceived;
 }
 
+
+void BMSInterface::storeSettings()
+{
+    mSettings.beginWriteArray("bleNames");
+    QHashIterator<QString, QString> i(mBleNames);
+    int ind = 0;
+    while (i.hasNext()) {
+        i.next();
+        mSettings.setArrayIndex(ind);
+        mSettings.setValue("address", i.key());
+        mSettings.setValue("name", i.value());
+        ind++;
+    }
+    mSettings.endArray();
+
+    mSettings.beginWriteArray("profiles");
+    for (int i = 0; i < mProfiles.size(); ++i) {
+        MCCONF_TEMP cfg = mProfiles.value(i).value<MCCONF_TEMP>();
+        mSettings.setArrayIndex(i);
+        mSettings.setValue("current_min_scale", cfg.current_min_scale);
+        mSettings.setValue("current_max_scale", cfg.current_max_scale);
+        mSettings.setValue("erpm_or_speed_min", cfg.erpm_or_speed_min);
+        mSettings.setValue("erpm_or_speed_max", cfg.erpm_or_speed_max);
+        mSettings.setValue("duty_min", cfg.duty_min);
+        mSettings.setValue("duty_max", cfg.duty_max);
+        mSettings.setValue("watt_min", cfg.watt_min);
+        mSettings.setValue("watt_max", cfg.watt_max);
+        mSettings.setValue("name", cfg.name);
+    }
+    mSettings.endArray();
+
+    mSettings.beginWriteArray("pairedUuids");
+    for (int i = 0;i < mPairedUuids.size();i++) {
+        mSettings.setArrayIndex(i);
+        mSettings.setValue("uuid", mPairedUuids.at(i));
+    }
+    mSettings.endArray();
+}
+
+
+#ifdef HAS_BLUETOOTH
 BleUart *BMSInterface::bleDevice()
 {
     return mBleUart;
@@ -209,6 +259,12 @@ QString BMSInterface::getBleName(QString address)
     }
     return res;
 }
+
+QString BMSInterface::getLastBleAddr() const
+{
+    return mLastBleAddr;
+}
+#endif
 
 bool BMSInterface::isPortConnected()
 {
@@ -426,7 +482,7 @@ bool BMSInterface::connectSerial(QString port, int baudrate)
     (void)baudrate;
     emit messageDialog(tr("Connect serial"),
                        tr("Serial port support is not enabled in this build "
-                          "of ENNOID-BMS Tool."),
+                          "of MaxkGo-BMS Tool."),
                        false, false);
     return false;
 #endif
@@ -446,8 +502,8 @@ QList<VSerialInfo_t> BMSInterface::listSerialPorts()
         int index = res.size();
 
         if(port.manufacturer().startsWith("Silicon")) {
-            //info.name.insert(0, "DieBieMS - ");
-            info.name.append(" - DieBieMS");
+            //info.name.insert(0, "ENNOID-BMS - ");
+            info.name.append(" - MaxkGo-BMS");
             info.isVesc = true;
             index = 0;
         } else {
@@ -500,6 +556,51 @@ double BMSInterface::getAutoconnectProgress() const
 {
     return mAutoconnectProgress;
 }
+
+QVector<int> BMSInterface::scanCan()
+{
+    QVector<int> canDevs;
+
+    if (!isPortConnected()) {
+        return canDevs;
+    }
+
+    QEventLoop loop;
+
+    bool timeout;
+    auto conn = connect(commands(), &Commands::pingCanRx,
+                        [&canDevs, &timeout, &loop](QVector<int> devs, bool isTimeout) {
+        for (int dev: devs) {
+            canDevs.append(dev);
+        }
+        timeout = isTimeout;
+        loop.quit();
+    });
+
+    commands()->pingCan();
+    loop.exec();
+
+    disconnect(conn);
+
+    if (!timeout) {
+        mCanDevsLast = canDevs;
+    } else {
+        canDevs.clear();
+    }
+
+    return canDevs;
+}
+
+QVector<int> BMSInterface::getCanDevsLast() const
+{
+    return mCanDevsLast;
+}
+
+void BMSInterface::ignoreCanChange(bool ignore)
+{
+    mIgnoreCanChange = ignore;
+}
+
 
 #ifdef HAS_SERIALPORT
 void BMSInterface::serialDataAvailable()
@@ -562,10 +663,12 @@ void BMSInterface::tcpInputError(QAbstractSocket::SocketError socketError)
     updateFwRx(false);
 }
 
+#ifdef HAS_BLUETOOTH
 void BMSInterface::bleDataRx(QByteArray data)
 {
     mPacket->processData(data);
 }
+#endif
 
 void BMSInterface::timerSlot()
 {
@@ -595,7 +698,7 @@ void BMSInterface::timerSlot()
                     emit statusMessage(tr("No firmware read response"), false);
                     emit messageDialog(tr("Read Firmware Version"),
                                        tr("Could not read firmware version. Make sure "
-                                          "that selected port really belongs to the DieBieMS. "),
+                                          "that selected port really belongs to the ENNOID-BMS. "),
                                        false, false);
                     disconnectPort();
                 }
@@ -668,9 +771,9 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
     QString strUuid = Utility::uuid2Str(uuid, true);
 
     if (fwPairs.isEmpty()) {
-        emit messageDialog(tr("No Supported Firmwares"),
-                           tr("This version of ENNOID-BMS Tool does not seem to have any supported "
-                              "firmwares. Something is probably wrong with the motor configuration "
+        emit messageDialog(tr("Not Supported Firmwares"),
+                           tr("This version of MaxkGo-BMS Tool does not seem to have any supported "
+                              "firmwares. Something is probably wrong with the BMS configuration "
                               "file."),
                            false, false);
         updateFwRx(false);
@@ -689,15 +792,15 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(false);
         mFwRetries = 0;
         disconnectPort();
-        emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please update it using a programmer."), false, false);
+        emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please update it using a programmer."), false, false);
     } else if (fw_connected > highest_supported) {
         mCommands->setLimitedMode(true);
         updateFwRx(true);
         if (!wasReceived) {
-            emit messageDialog(tr("Warning"), tr("The connected DieBieMS has newer firmware than this version of the"
-                                                " ENNOID-BMS Tool supports. It is recommended that you update the DieBieMS"
+            emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has newer firmware than this version of the"
+                                                " MaxkGo-BMS Tool supports. It is recommended that you update the ENNOID-BMS"
                                                 " Tool to the latest version. Alternatively, the firmware on"
-                                                " the connected DieBieMS can be downgraded in the firmware page."
+                                                " the connected ENNOID-BMS can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"
                                                 " only the firmware can be changed."), false, false);
         }
@@ -706,8 +809,8 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mCommands->setLimitedMode(true);
             updateFwRx(true);
             if (!wasReceived) {
-                emit messageDialog(tr("Warning"), tr("The connected DieBieMS has too old firmware. Since the"
-                                                    " connected DieBieMS has firmware with bootloader support, it can be"
+                emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has too old firmware. Since the"
+                                                    " connected ENNOID-BMS has firmware with bootloader support, it can be"
                                                     " updated from the Firmware page."
                                                     " Until then, limited communication mode will be used where only the"
                                                     " firmware can be changed."), false, false);
@@ -717,7 +820,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mFwRetries = 0;
             disconnectPort();
             if (!wasReceived) {
-                emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please"
+                emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please"
                                                    " update it using a programmer."), false, false);
             }
         }
@@ -725,12 +828,12 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(true);
         if ((fw_connected < highest_supported)) {
             if (!wasReceived) {
-                //emit messageDialog(tr("Warning"), tr("The connected DieBieMS has compatible, but old firmware. It is recommended that you update it."), false, false);
+                //emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS is compatible, but old firmware. It is recommended that you update it."), false, false);
             }
         }
 
         QString fwStr;
-        fwStr.sprintf("DieBieMS Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("MaxkGo-BMS Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }

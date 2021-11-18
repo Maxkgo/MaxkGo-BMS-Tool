@@ -21,11 +21,11 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
-import Vedder.vesc.commands 1.0
-import Vedder.vesc.configparams 1.0
-import Vedder.vesc.fwhelper 1.0
-import Vedder.vesc.utility 1.0
+import Ennoid.bmsinterface 1.0
+import Ennoid.commands 1.0
+import Ennoid.configparams 1.0
+import Ennoid.fwhelper 1.0
+import Ennoid.utility 1.0
 
 Item {
     property Commands mCommands: VescIf.commands()
@@ -42,18 +42,24 @@ Item {
         RowLayout {
             Layout.fillHeight: true
             Layout.fillWidth: true
+            spacing: 0
 
-            PageIndicator {
-                id: indicator
-
-                count: swipeView.count
-                currentIndex: swipeView.currentIndex
-
-                Layout.preferredWidth: 15
+            Rectangle {
+                color: "#4f4f4f"
+                width: 16
+                Layout.fillHeight: true
                 Layout.alignment: Qt.AlignHCenter |  Qt.AlignVCenter
-                rotation: 90
-            }
 
+                PageIndicator {
+                    id: indicator
+                    count: swipeView.count
+                    currentIndex: swipeView.currentIndex
+
+                    Layout.preferredWidth: 15
+                    Layout.alignment: Qt.AlignHCenter |  Qt.AlignVCenter
+                    rotation: 90
+                }
+            }
             SwipeView {
                 id: swipeView
                 enabled: true
@@ -76,18 +82,22 @@ Item {
                             border.width: 0
                             gradient: Gradient {
                                 GradientStop {
-                                    position: 0
-                                    color: "#002dcbff"
+                                    position: 0.00;
+                                    color: "#002dcbff";
                                 }
 
                                 GradientStop {
-                                    position: 0.534
-                                    color: "#4c4de43a"
+                                    position: 0.3;
+                                    color: "#80014cb2";
+                                }
+                                GradientStop {
+                                    position: 0.7;
+                                    color: "#80014cb2";
                                 }
 
                                 GradientStop {
-                                    position: 1
-                                    color: "#000dc3ff"
+                                    position: 1.00;
+                                    color: "#000dc3ff";
                                 }
 
                             }
@@ -95,6 +105,7 @@ Item {
 
                             Text {
                                 anchors.centerIn: parent
+                                color: "white"
                                 text: "Included Files"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
@@ -109,6 +120,7 @@ Item {
                         }
 
                         Text {
+                            color: "white"
                             Layout.fillWidth: true
                             height: 30;
                             text: "Hardware"
@@ -140,7 +152,7 @@ Item {
                                 fwItems.clear()
 
                                 for (var name in fws) {
-                                    if (name.toLowerCase().indexOf("vesc_default.bin") !== -1) {
+                                    if (name.toLowerCase().indexOf("ENNOID-BMS.bin") !== -1) {
                                         fwItems.insert(0, { key: name, value: fws[name] })
                                     } else {
                                         fwItems.append({ key: name, value: fws[name] })
@@ -152,6 +164,7 @@ Item {
                         }
 
                         Text {
+                            color: "white"
                             Layout.fillWidth: true
                             height: 30;
                             text: "Firmware"
@@ -202,18 +215,20 @@ Item {
                             border.width: 0
                             gradient: Gradient {
                                 GradientStop {
-                                    position: 0
-                                    color: "#002dcbff"
+                                    position: 0.00;
+                                    color: "#002dcbff";
                                 }
-
                                 GradientStop {
-                                    position: 0.534
-                                    color: "#4c4de43a"
+                                    position: 0.3;
+                                    color: "#80014cb2";
                                 }
-
                                 GradientStop {
-                                    position: 1
-                                    color: "#000dc3ff"
+                                    position: 0.7;
+                                    color: "#80014cb2";
+                                }
+                                GradientStop {
+                                    position: 1;
+                                    color: "#000dc3ff";
                                 }
 
                             }
@@ -221,6 +236,7 @@ Item {
 
                             Text {
                                 anchors.centerIn: parent
+                                color: "white"
                                 text: "Custom File"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
@@ -235,6 +251,7 @@ Item {
                         }
 
                         TextInput {
+                            color: "white"
                             id: customFwText
                             Layout.fillWidth: true
                         }
@@ -256,6 +273,12 @@ Item {
                             }
                         }
 
+                        Item {
+                            // Spacer
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                        }
+                    }
                         FilePicker {
                             id: filePicker
                             anchors.fill: parent
@@ -270,14 +293,7 @@ Item {
                                 enabled = false
                             }
                         }
-
-                        Item {
-                            // Spacer
-                            Layout.fillWidth: true
-                            Layout.fillHeight: true
-                        }
                     }
-                }
 
                 Page {
                     ColumnLayout {
@@ -291,25 +307,30 @@ Item {
                             border.width: 0
                             gradient: Gradient {
                                 GradientStop {
-                                    position: 0
-                                    color: "#002dcbff"
+                                    position: 0.00;
+                                    color: "#002dcbff";
                                 }
 
                                 GradientStop {
-                                    position: 0.534
-                                    color: "#4c4de43a"
+                                    position: 0.3;
+                                    color: "#80014cb2";
                                 }
 
                                 GradientStop {
-                                    position: 1
+                                    position: 0.7;
+                                    color: "#80014cb2";
+                                }
+
+                                GradientStop {
+                                    position: 1.00;
                                     color: "#000dc3ff"
                                 }
-
                             }
                             border.color: "#00000000"
 
                             Text {
                                 anchors.centerIn: parent
+                                color: "white"
                                 text: "Bootloader"
                                 font.bold: true
                                 verticalAlignment: Text.AlignVCenter
@@ -324,6 +345,7 @@ Item {
                         }
 
                         Text {
+                            color: "white"
                             Layout.fillWidth: true
                             height: 30;
                             text: "Hardware"
@@ -359,20 +381,7 @@ Item {
         Rectangle {
             Layout.fillWidth: true
             height: asd.implicitHeight + 20
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.00;
-                    color: "#e4eaff";
-                }
-                GradientStop {
-                    position: 0.91;
-                    color: "#d8e4d2";
-                }
-                GradientStop {
-                    position: 1.00;
-                    color: "#a4c096";
-                }
-            }
+            color: "#414141"
 
             ColumnLayout {
                 id: asd
@@ -381,6 +390,7 @@ Item {
 
                 Text {
                     Layout.fillWidth: true
+                    color: "white"
                     id: uploadText
                     text: qsTr("Not Uploading")
                     horizontalAlignment: Text.AlignHCenter
@@ -403,7 +413,7 @@ Item {
                             if (!VescIf.isPortConnected()) {
                                 VescIf.emitMessageDialog(
                                             "Connection Error",
-                                            "The VESC is not connected. Please open a connection.",
+                                            "The BMS is not connected. Please open a connection.",
                                             false)
                                 return
                             }
@@ -412,9 +422,9 @@ Item {
                                 if (fwItems.rowCount() === 0) {
                                     VescIf.emitMessageDialog(
                                                 "Upload Error",
-                                                "This version of VESC Tool does not include any firmware " +
+                                                "This version of ENNOID-BMS Tool does not include any firmware " +
                                                 "for your hardware version. You can either " +
-                                                "upload a custom file or look for a later version of VESC " +
+                                                "upload a custom file or look for a later version of ENNOID-BMS " +
                                                 "Tool that might support your hardware.",
                                                 false)
                                     return;
@@ -423,7 +433,7 @@ Item {
                                 if (hwItems.rowCount() === 1) {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
-                                            "Uploading new firmware will clear all settings on your VESC " +
+                                            "Uploading new firmware will clear all settings on your ENNOID-BMS " +
                                             "and you have to do the configuration again. Do you want to " +
                                             "continue?"
                                     uploadDialog.open()
@@ -431,7 +441,7 @@ Item {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
                                             "Uploading firmware for the wrong hardware version " +
-                                            "WILL damage the VESC for sure. Are you sure that you have " +
+                                            "WILL damage the ENNOID-BMS for sure. Are you sure that you have " +
                                             "chosen the correct hardware version?"
                                     uploadDialog.open()
                                 }
@@ -440,7 +450,7 @@ Item {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
                                             "Uploading firmware for the wrong hardware version " +
-                                            "WILL damage the VESC for sure. Are you sure that you have " +
+                                            "WILL damage the ENNOID-BMS for sure. Are you sure that you have " +
                                             "chosen the correct hardware version?"
                                     uploadDialog.open()
                                 } else {
@@ -453,7 +463,7 @@ Item {
                                 if (blItems.rowCount() === 0) {
                                     VescIf.emitMessageDialog(
                                                 "Upload Error",
-                                                "This version of VESC Tool does not include any bootloader " +
+                                                "This version of ENNOID-BMS Tool does not include any bootloader " +
                                                 "for your hardware version.",
                                                 false)
                                     return;
@@ -462,7 +472,7 @@ Item {
                                 uploadDialog.title = "Warning"
                                 uploadDialogLabel.text =
                                         "This will attempt to upload a bootloader to the connected VESC. " +
-                                        "If the connected VESC already has a bootloader this will destroy " +
+                                        "If the connected ENNOID-BMS already has a bootloader this will destroy " +
                                         "the bootloader and firmware updates cannot be done anymore. Do " +
                                         "you want to continue?"
                                 uploadDialog.open()
@@ -485,7 +495,7 @@ Item {
                 Text {
                     Layout.fillWidth: true
                     id: versionText
-                    color: "#606060"
+                    color: "#e0e0e0"
                     text:
                         "FW   : \n" +
                         "HW   : \n" +
@@ -509,6 +519,7 @@ Item {
         y: (parent.height - height) / 2
 
         Text {
+            color: "#ffffff"
             id: uploadDialogLabel
             verticalAlignment: Text.AlignVCenter
             anchors.fill: parent

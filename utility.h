@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -23,6 +27,8 @@
 #define UTILITY_H
 
 #include <QObject>
+#include <QMetaEnum>
+#include <cstdint>
 #include "bmsinterface.h"
 
 class Utility : public QObject
@@ -34,13 +40,19 @@ public:
 
     static double map(double x, double in_min, double in_max, double out_min, double out_max);
     static float throttle_curve(float val, float curve_acc, float curve_brake, int mode);
-    static bool autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *parent = 0);
-    Q_INVOKABLE static void checkVersion(BMSInterface *vesc = 0);
+    static bool autoconnectBlockingWithProgress(BMSInterface *dieBieMS, QWidget *parent = 0);
+    Q_INVOKABLE static void checkVersion(BMSInterface *dieBieMS = 0);
     Q_INVOKABLE static QString fwChangeLog();
     Q_INVOKABLE static QString vescToolChangeLog();
     Q_INVOKABLE static QString aboutText();
     Q_INVOKABLE static QString uuid2Str(QByteArray uuid, bool space);
     Q_INVOKABLE static bool requestFilePermission();
+    Q_INVOKABLE static bool waitSignal(QObject *sender, QString signal, int timeoutMs);
+    Q_INVOKABLE static bool almostEqual(double A, double B, double eps);
+    template<typename QEnum>
+    static QString QEnumToQString (const QEnum value) {
+        return QString(QMetaEnum::fromType<QEnum>().valueToKey(value));
+    }
 
 signals:
 

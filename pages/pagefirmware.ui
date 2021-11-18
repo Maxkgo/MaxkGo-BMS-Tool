@@ -219,7 +219,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string>Update firmware on the connected DieBieMS</string>
+           <string>Update firmware on the connected ENNOID-BMS</string>
           </property>
           <property name="text">
            <string/>

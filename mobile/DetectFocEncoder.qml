@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
+import Vedder.vesc.bmsinterface 1.0
 import Vedder.vesc.commands 1.0
 import Vedder.vesc.configparams 1.0
 
@@ -32,7 +32,7 @@ Item {
     property bool mInverted: false
 
     property Commands mCommands: VescIf.commands()
-    property ConfigParams mMcConf: VescIf.mcConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
     property ConfigParams mInfoConf: VescIf.infoConfig()
 
     function openDialog() {
@@ -133,9 +133,9 @@ Item {
                     text: "Apply & Close"
                     Layout.fillWidth: true
                     onClicked: {
-                        mMcConf.updateParamDouble("foc_encoder_offset", mOffset)
-                        mMcConf.updateParamDouble("foc_encoder_ratio", mRatio)
-                        mMcConf.updateParamBool("foc_encoder_inverted", mInverted)
+                        mbmsConfig.updateParamDouble("foc_encoder_offset", mOffset)
+                        mbmsConfig.updateParamDouble("foc_encoder_ratio", mRatio)
+                        mbmsConfig.updateParamBool("foc_encoder_inverted", mInverted)
 
                         VescIf.emitStatusMessage("Encoder Parameters Applied", true)
 

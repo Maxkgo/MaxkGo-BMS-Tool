@@ -21,20 +21,21 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
-import Vedder.vesc.commands 1.0
-import Vedder.vesc.configparams 1.0
+import Ennoid.bmsinterface 1.0
+import Ennoid.commands 1.0
+import Ennoid.configparams 1.0
 
 Item {
     property int parentWidth: 10
     property int parentHeight: 10
 
     property Commands mCommands: VescIf.commands()
-    property ConfigParams mMcConf: VescIf.mcConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
     property ConfigParams mInfoConf: VescIf.infoConfig()
 
     function openDialog() {
         dialog.open()
+        opacitySlider.value = 1
     }
 
     function testConnected() {
@@ -43,7 +44,7 @@ Item {
         } else {
             VescIf.emitMessageDialog(
                         "Connection Error",
-                        "The VESC is not connected. Please connect it to run detection.",
+                        "The BMS is not connected. Please connect it to run detection.",
                         false, false)
             return false
         }
@@ -52,57 +53,94 @@ Item {
     Dialog {
         id: dialog
         standardButtons: Dialog.Close
-        modal: true
+        modal: false
         focus: true
-        width: parentWidth - 20
-        height: parentHeight - 20
+        width: parentWidth - 40
+        height: parentHeight - 40
         closePolicy: Popup.CloseOnEscape
-        x: 10
+        x: 20
         y: 10
+        background.opacity: opacitySlider.value
 
-        SwipeView {
-            id: swipeView
-            currentIndex: tabBar.currentIndex
+        ColumnLayout {
             anchors.fill: parent
-            clip: true
 
-            Page {
-                ColumnLayout {
-                    anchors.fill: parent
-                    spacing: 0
+            SwipeView {
+                id: swipeView
+                currentIndex: tabBar.currentIndex
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                clip: true
 
-                    DoubleSpinBox {
-                        id: currentBox
-                        Layout.fillWidth: true
-                        decimals: 1
-                        prefix: "I: "
-                        suffix: " A"
-                        realFrom: 0.0
-                        realTo: 500.0
-                        realValue: 3.0
-                        realStepSize: 1.0
+                Page {
+                    background: Rectangle {
+                        opacity: 0.0
                     }
 
-                    Rectangle {
-                        Layout.fillHeight: true
-                    }
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 0
 
-                    CheckBox {
-                        id: maintainCurrentBox
-                        text: "Continue after release"
-                    }
+                        DoubleSpinBox {
+                            id: currentBox
+                            Layout.fillWidth: true
+                            decimals: 1
+                            prefix: "I: "
+                            suffix: " A"
+                            realFrom: 0.0
+                            realTo: 500.0
+                            realValue: 3.0
+                            realStepSize: 1.0
+                        }
 
-                    RowLayout {
-                        Layout.fillWidth: true
+                        Rectangle {
+                            Layout.fillHeight: true
+                        }
+
+                        CheckBox {
+                            id: maintainCurrentBox
+                            text: "Continue after release"
+                        }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set REV"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setCurrent(-currentBox.realValue)
+                                    } else if (!maintainCurrentBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set FWD"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setCurrent(currentBox.realValue)
+                                    } else if (!maintainCurrentBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+                        }
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set REV"
+                            text: "Brake"
 
                             onPressedChanged: {
                                 if (pressed) {
-                                    mCommands.setCurrent(-currentBox.realValue)
+                                    mCommands.setCurrentBrake(currentBox.realValue)
                                 } else if (!maintainCurrentBox.checked) {
                                     mCommands.setCurrent(0.0)
                                 }
@@ -111,79 +149,83 @@ Item {
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set FWD"
+                            text: "Release"
 
-                            onPressedChanged: {
-                                if (pressed) {
-                                    mCommands.setCurrent(currentBox.realValue)
-                                } else if (!maintainCurrentBox.checked) {
-                                    mCommands.setCurrent(0.0)
-                                }
-                            }
-                        }
-                    }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Brake"
-
-                        onPressedChanged: {
-                            if (pressed) {
-                                mCommands.setCurrentBrake(currentBox.realValue)
-                            } else if (!maintainCurrentBox.checked) {
+                            onClicked: {
                                 mCommands.setCurrent(0.0)
                             }
                         }
                     }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Release"
-
-                        onClicked: {
-                            mCommands.setCurrent(0.0)
-                        }
-                    }
-                }
             }
 
-            Page {
-                ColumnLayout {
-                    anchors.fill: parent
-                    spacing: 0
-
-                    DoubleSpinBox {
-                        id: dutyBox
-                        Layout.fillWidth: true
-                        prefix: "D: "
-                        decimals: 3
-                        realFrom: 0.0
-                        realTo: 1.0
-                        realValue: 0.1
-                        realStepSize: 0.01
+                Page {
+                    background: Rectangle {
+                        opacity: 0.0
                     }
 
-                    Rectangle {
-                        Layout.fillHeight: true
-                    }
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 0
 
-                    CheckBox {
-                        id: maintainDutyBox
-                        text: "Continue after release"
-                    }
+                        DoubleSpinBox {
+                            id: dutyBox
+                            Layout.fillWidth: true
+                            prefix: "D: "
+                            decimals: 3
+                            realFrom: 0.0
+                            realTo: 1.0
+                            realValue: 0.1
+                            realStepSize: 0.01
+                        }
 
-                    RowLayout {
-                        Layout.fillWidth: true
+                        Rectangle {
+                            Layout.fillHeight: true
+                        }
+
+                        CheckBox {
+                            id: maintainDutyBox
+                            text: "Continue after release"
+                        }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set REV"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setDutyCycle(-dutyBox.realValue)
+                                    } else if (!maintainDutyBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set FWD"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setDutyCycle(dutyBox.realValue)
+                                    } else if (!maintainDutyBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+                        }
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set REV"
+                            text: "0 Duty (brake)"
 
                             onPressedChanged: {
                                 if (pressed) {
-                                    mCommands.setDutyCycle(-dutyBox.realValue)
+                                    mCommands.setDutyCycle(0.0)
                                 } else if (!maintainDutyBox.checked) {
                                     mCommands.setCurrent(0.0)
                                 }
@@ -192,80 +234,84 @@ Item {
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set FWD"
+                            text: "Release"
 
-                            onPressedChanged: {
-                                if (pressed) {
-                                    mCommands.setDutyCycle(dutyBox.realValue)
-                                } else if (!maintainDutyBox.checked) {
-                                    mCommands.setCurrent(0.0)
-                                }
-                            }
-                        }
-                    }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "0 Duty (brake)"
-
-                        onPressedChanged: {
-                            if (pressed) {
-                                mCommands.setDutyCycle(0.0)
-                            } else if (!maintainDutyBox.checked) {
+                            onClicked: {
                                 mCommands.setCurrent(0.0)
                             }
                         }
                     }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Release"
-
-                        onClicked: {
-                            mCommands.setCurrent(0.0)
-                        }
-                    }
                 }
-            }
 
-            Page {
-                ColumnLayout {
-                    anchors.fill: parent
-                    spacing: 0
-
-                    DoubleSpinBox {
-                        id: speedBox
-                        Layout.fillWidth: true
-                        prefix: "\u03C9: "
-                        suffix: " ERPM"
-                        decimals: 1
-                        realFrom: 0.0
-                        realTo: 500000
-                        realValue: 3000
-                        realStepSize: 500
+                Page {
+                    background: Rectangle {
+                        opacity: 0.0
                     }
 
-                    Rectangle {
-                        Layout.fillHeight: true
-                    }
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 0
 
-                    CheckBox {
-                        id: maintainSpeedBox
-                        text: "Continue after release"
-                    }
+                        DoubleSpinBox {
+                            id: speedBox
+                            Layout.fillWidth: true
+                            prefix: "\u03C9: "
+                            suffix: " ERPM"
+                            decimals: 1
+                            realFrom: 0.0
+                            realTo: 500000
+                            realValue: 3000
+                            realStepSize: 500
+                        }
 
-                    RowLayout {
-                        Layout.fillWidth: true
+                        Rectangle {
+                            Layout.fillHeight: true
+                        }
+
+                        CheckBox {
+                            id: maintainSpeedBox
+                            text: "Continue after release"
+                        }
+
+                        RowLayout {
+                            Layout.fillWidth: true
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set REV"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setRpm(-speedBox.realValue)
+                                    } else if (!maintainSpeedBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+
+                            Button {
+                                Layout.fillWidth: true
+                                Layout.preferredWidth: 100
+                                text: "Set FWD"
+
+                                onPressedChanged: {
+                                    if (pressed) {
+                                        mCommands.setRpm(speedBox.realValue)
+                                    } else if (!maintainSpeedBox.checked) {
+                                        mCommands.setCurrent(0.0)
+                                    }
+                                }
+                            }
+                        }
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set REV"
+                            text: "0 ERPM (brake)"
 
                             onPressedChanged: {
                                 if (pressed) {
-                                    mCommands.setRpm(-speedBox.realValue)
+                                    mCommands.setRpm(0.0)
                                 } else if (!maintainSpeedBox.checked) {
                                     mCommands.setCurrent(0.0)
                                 }
@@ -274,90 +320,84 @@ Item {
 
                         Button {
                             Layout.fillWidth: true
-                            Layout.preferredWidth: 100
-                            text: "Set FWD"
+                            text: "Release"
 
-                            onPressedChanged: {
-                                if (pressed) {
-                                    mCommands.setRpm(speedBox.realValue)
-                                } else if (!maintainSpeedBox.checked) {
-                                    mCommands.setCurrent(0.0)
-                                }
-                            }
-                        }
-                    }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "0 ERPM (brake)"
-
-                        onPressedChanged: {
-                            if (pressed) {
-                                mCommands.setRpm(0.0)
-                            } else if (!maintainSpeedBox.checked) {
+                            onClicked: {
                                 mCommands.setCurrent(0.0)
                             }
                         }
                     }
+                }
 
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Release"
+                Page {
+                    background: Rectangle {
+                        opacity: 0.0
+                    }
 
-                        onClicked: {
-                            mCommands.setCurrent(0.0)
+                    ColumnLayout {
+                        anchors.fill: parent
+                        spacing: 0
+
+                        DoubleSpinBox {
+                            id: posBox
+                            Layout.fillWidth: true
+                            prefix: "P: "
+                            suffix: " \u00B0"
+                            decimals: 3
+                            realFrom: 0
+                            realTo: 360
+                            realValue: 20
+                            realStepSize: 0.1
+                        }
+
+                        Rectangle {
+                            Layout.fillHeight: true
+                        }
+
+                        CheckBox {
+                            id: maintainPosBox
+                            text: "Continue after release"
+                        }
+
+                        Button {
+                            Layout.fillWidth: true
+                            text: "Set"
+
+                            onPressedChanged: {
+                                if (pressed) {
+                                    mCommands.setPos(posBox.realValue)
+                                } else if (!maintainPosBox.checked) {
+                                    mCommands.setCurrent(0.0)
+                                }
+                            }
+                        }
+
+                        Button {
+                            Layout.fillWidth: true
+                            text: "Release"
+
+                            onClicked: {
+                                mCommands.setCurrent(0.0)
+                            }
                         }
                     }
                 }
             }
 
-            Page {
-                ColumnLayout {
-                    anchors.fill: parent
-                    spacing: 0
+            RowLayout {
+                Layout.fillWidth: true
 
-                    DoubleSpinBox {
-                        id: posBox
-                        Layout.fillWidth: true
-                        prefix: "P: "
-                        suffix: " \u00B0"
-                        decimals: 3
-                        realFrom: 0
-                        realTo: 360
-                        realValue: 20
-                        realStepSize: 0.1
-                    }
+                Text {
+                    color: "white"
+                    text: qsTr("Opacity")
+                }
 
-                    Rectangle {
-                        Layout.fillHeight: true
-                    }
-
-                    CheckBox {
-                        id: maintainPosBox
-                        text: "Continue after release"
-                    }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Set"
-
-                        onPressedChanged: {
-                            if (pressed) {
-                                mCommands.setPos(posBox.realValue)
-                            } else if (!maintainPosBox.checked) {
-                                mCommands.setCurrent(0.0)
-                            }
-                        }
-                    }
-
-                    Button {
-                        Layout.fillWidth: true
-                        text: "Release"
-
-                        onClicked: {
-                            mCommands.setCurrent(0.0)
-                        }
-                    }
+                Slider {
+                    id: opacitySlider
+                    Layout.fillWidth: true
+                    from: 0.1
+                    to: 1.0
+                    value: 1.0
                 }
             }
         }
@@ -375,7 +415,7 @@ Item {
 
                 background: Rectangle {
                     opacity: 1
-                    color: "#e8e8e8"
+                    color: "#4f4f4f"
                 }
 
                 property int buttons: 4

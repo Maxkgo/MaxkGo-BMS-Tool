@@ -52,7 +52,6 @@
         <file>res/icons/motor_down.png</file>
         <file>res/icons/motor_up.png</file>
         <file>res/icons/motor.png</file>
-        <file>res/icons/appconf.png</file>
         <file>res/icons/mcconf.png</file>
         <file>res/icons/3ph_sine.png</file>
         <file>res/icons/Delete-96.png</file>
@@ -122,13 +121,11 @@
         <file>res/icons/batteries-96.png</file>
         <file>res/logo.png</file>
         <file>res/bg.png</file>
-        <file>res/bootloaders/DieBieMS.bin</file>
-        <file>res/firmwares/DieBieMS/DieBieMS_default.bin</file>
         <file>res/config.xml</file>
-        <file>res/bootloaders/EFoilBMSHW2.bin</file>
-        <file>res/bootloaders/EFoilBMSHW1.bin</file>
-        <file>res/firmwares/EFoilBMSHW1/DieBieMS_default.bin</file>
-        <file>res/firmwares/EFoilBMSHW2/DieBieMS_default.bin</file>
-        <file>res/bootloaders/DSBTSolarHW1.bin</file>
+        <file>res/logo_white.png</file>
+        <file>res/bootloaders/generic.bin</file>
+        <file>res/firmwares/MKBMS-LV-MINI/MKBMS-LV-MINI.bin</file>
+        <file>res/firmwares/MKBMS-SS-24S-MINI/MKBMS-SS-24S-MINI.bin</file>
+        <file>res/firmwares/MKBMS-SS-MINI/MKBMS-SS-MINI.bin</file>
     </qresource>
 </RCC>

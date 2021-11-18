@@ -1,0 +1,2361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConfigParams>
+    <Params>
+        <noOfCellsSeries>
+            <longName>Cells in series</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of cell(groups) in series in the batterypack. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The BMS needs a minimum of 4 cell(groups) in series to operate, this is a minimal voltage requirement by the LTC and power supply.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_CELLS_SERIES</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>180</maxInt>
+            <minInt>3</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>12</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfCellsSeries>
+        <noOfCellsParallel>
+            <longName>Cells in parallel</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of cells in parallel (used for future SoC algorithm).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_CELLS_PARALLEL</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>200</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>10</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfCellsParallel>
+        <noOfParallelModules>
+            <longName>Parallel modules count</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of parallel module strings in the battery pack.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_PARALLEL_MODULE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>10</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>1</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfParallelModules>
+        <batteryCapacity>
+            <longName>Battery capacity total</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Battery pack total capacity in Ah. This value is used for the state of charge indication / calculation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>BATTERY_CAPACITY</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1000</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>1</stepDouble>
+            <valDouble>29</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>Ah</suffix>
+            <vTx>9</vTx>
+        </batteryCapacity>
+        <cellMonitorICType>
+            <longName>Slave IC type</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell monitor IC type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>None</enumNames>
+            <enumNames>LTC6811-1</enumNames>
+            <enumNames>LTC6812-1</enumNames>
+            <enumNames>LTC6813-1</enumNames>
+        </cellMonitorICType>
+        <cellMonitorICCount>
+            <longName>Slave IC count</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of slave IC's.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_MONITOR_IC_COUNT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>10</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>1</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </cellMonitorICCount>
+        <cellTechnology>
+            <longName>Cell technology</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Battery cell technology, used for state of charge indication.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_TECHNOLOGY</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Li-Ion</enumNames>
+            <enumNames>Li-Polymer</enumNames>
+            <enumNames>Li-Phosphate</enumNames>
+        </cellTechnology>
+        <cellHardUnderVoltage>
+            <longName>Cell hard undervoltage</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Worst case lowest cell voltage, when the cell voltage goes below this threshold the BMS turns off completely. This value is a hard limit that is configured in the LTC, crossing this value for more than the 'maxUnderAndOverVoltageErrorCount' amount will make the BMS to turn off immediately.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_HARD_UNDER_VOLTAGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>2.3</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellHardUnderVoltage>
+        <cellHardOverVoltage>
+            <longName>Cell hard overvoltage</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Worst case highest cell voltage, when the cell voltage goes above this threshold the BMS turns off completely. This value is a hard limit that is configured in the LTC, crossing this value for more than the 'maxUnderAndOverVoltageErrorCount' amount will make the BMS to turn off immediately.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_HARD_OVER_VOLTAGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>4.2</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellHardOverVoltage>
+        <cellLCSoftUnderVoltage>
+            <longName>Cell soft undervoltage</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal use BMS current path lowest cell voltage, when the cell voltage goes below this threshold the BMS turns off its current path output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_LC_SOFT_UNDER_VOLTAGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>2.9</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellLCSoftUnderVoltage>
+        <cellSoftOverVoltage>
+            <longName>Cell soft overvoltage</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal use highest cell voltage, when the cell voltage goes above this threshold the BMS turns off its charger input.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_SOFT_OVER_VOLTAGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>4.15</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellSoftOverVoltage>
+        <cellBalanceDifferenceThreshold>
+            <longName>Cell balance difference threshold</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Start balancing above this cell voltage difference voltage, stop if below.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_BALANCE_DIFF_THRESH</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.005</stepDouble>
+            <valDouble>0.005</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellBalanceDifferenceThreshold>
+        <cellBalanceStart>
+            <longName>Cell balance start voltage</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Balance when the cell voltage is above this threshold.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_BALANCE_START</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>5</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>4.1</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellBalanceStart>
+        <cellThrottleUpperStart>
+            <longName>Cell throttle upper start</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Charge throttle start. This parameter configures the charge throttle functionallity. When for example the cellSoftOverVoltage is set to 4.25V, the cellThrottleUpperStart to 0.2V and cellThrottleUpperMargin to 0.05V a cell voltage below (4.25-0.2-0.05=) 4V will result in 100% throttle, as the cell voltage is rising it will linearly throttle back from 100% to 5% when the cell voltage is at (4.25-0.05=) 4.2V, above that the throttle stays at 5% until the cellSoftOverVoltage of 4.25 it reached, then the input is turned off and the throttle is at 0%. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This is only a signal that is transmitted on the CAN bus and will only work with chargers that implement it.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_THROTTLE_UPPER_START</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>2</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.02</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellThrottleUpperStart>
+        <cellThrottleLowerStart>
+            <longName>Cell throttle lower start</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Discharge throttle start. This parameter configures the discharge throttle functionallity. When for example the cellSoftUnderVoltage is set to 3V, the cellThrottleLowerStart to 0.2V and cellThrottleLowerMargin to 0.05V a cell voltage above (3+0.2+0.05=) 3.25V will result in 100% throttle, as the cell voltage is lowering it will linearly throttle back from 100% to 5% when the cell voltage is at (3+0.05=) 3.05V, below that the throttle stays at 5% until the cellSoftUnderVoltage of 3V it reached, then the output is turned off and the throttle is at 0%. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This is only a signal that is transmitted on the CAN bus and will only work with loads that implement it.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_THROTTLE_LOWER_START</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>2</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.2</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellThrottleLowerStart>
+        <cellThrottleUpperMargin>
+            <longName>Cell throttle upper margin</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Charge throttle margin. This parameter configures the charge throttle functionallity. When for example the cellSoftOverVoltage is set to 4.25V, the cellThrottleUpperStart to 0.2V and cellThrottleUpperMargin to 0.05V a cell voltage below (4.25-0.2-0.05=) 4V will result in 100% throttle, as the cell voltage is rising it will linearly throttle back from 100% to 5% when the cell voltage is at (4.25-0.05=) 4.2V, above that the throttle stays at 5% until the cellSoftOverVoltage of 4.25 it reached, then the input is turned off and the throttle is at 0%. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This is only a signal that is transmitted on the CAN bus and will only work with chargers that implement it.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_THROTTLE_UPPER_MARGIN</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>2</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.01</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellThrottleUpperMargin>
+        <cellThrottleLowerMargin>
+            <longName>Cell throttle lower margin</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Discharge throttle margin. This parameter configures the discharge throttle functionallity. When for example the cellSoftUnderVoltage is set to 3V, the cellThrottleLowerStart to 0.2V and cellThrottleLowerMargin to 0.05V a cell voltage above (3+0.2+0.05=) 3.25V will result in 100% throttle, as the cell voltage is lowering it will linearly throttle back from 100% to 5% when the cell voltage is at (3+0.05=) 3.05V, below that the throttle stays at 5% until the cellSoftUnderVoltage of 3V it reached, then the output is turned off and the throttle is at 0%. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This is only a signal that is transmitted on the CAN bus and will only work with loads that implement it.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_THROTTLE_LOWER_MARGIN</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>2</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.2</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </cellThrottleLowerMargin>
+        <packVoltageDataSource>
+            <longName>Voltage data source</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The pack voltage data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>PACK_VOLTAGE_DATA_SOURCE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>NoSource</enumNames>
+            <enumNames>ISL28022 (I2C2 - 0x40) LV BatteryInput</enumNames>
+            <enumNames>SumOfIndividualCellVoltages</enumNames>
+        </packVoltageDataSource>
+        <packCurrentDataSource>
+            <longName>Current data source</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The pack current data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>NoSource</enumNames>
+            <enumNames>ENNOID-BMS current path</enumNames>
+            <enumNames>CAN-&gt;DieBieShunt</enumNames>
+            <enumNames>CAN-&gt;Isabellenhutte</enumNames>
+        </packCurrentDataSource>
+        <buzzerSignalSource>
+            <longName>Signal source</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the desired signal source / reason for the buzzer to start buzzing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>BUZZER_SIGNAL_SOURCE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Always off</enumNames>
+            <enumNames>Always on</enumNames>
+            <enumNames>All sources below</enumNames>
+            <enumNames>Undervoltage LC</enumNames>
+            <enumNames>Safe operating area</enumNames>
+        </buzzerSignalSource>
+        <buzzerSignalType>
+            <longName>Signal type</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the desired signal source type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>BUZZER_SIGNAL_TYPE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>Off</enumNames>
+            <enumNames>On</enumNames>
+            <enumNames>Toggle</enumNames>
+            <enumNames>Toggle fast</enumNames>
+            <enumNames>Pulse short</enumNames>
+            <enumNames>Pulse long</enumNames>
+            <enumNames>Pulse 200 20</enumNames>
+            <enumNames>Pulse 1000 4</enumNames>
+        </buzzerSignalType>
+        <buzzerPersistent>
+            <longName>Persistent</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define whether the buzzer should stay on or should reset when signal condition resets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>BUZZER_PERSISTENT</cDefine>
+            <valInt>1</valInt>
+        </buzzerPersistent>
+        <shuntLCFactor>
+            <longName>Shunt factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for ISL based shut measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>SHUNT_LC_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>-1</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>-0.0052</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </shuntLCFactor>
+        <shuntLCOffset>
+            <longName>Shunt Offset</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for ISL based shut measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>SHUNT_LC_OFFSET</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1024</maxInt>
+            <minInt>-1024</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix>LSB</suffix>
+            <vTx>4</vTx>
+        </shuntLCOffset>
+        <shuntHCFactor>
+            <longName>Shunt factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for ISL based shut measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>SHUNT_HC_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>-1</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>-0.0269</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </shuntHCFactor>
+        <shuntHCOffset>
+            <longName>Shunt Offset</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for ISL based shut measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>SHUNT_HC_OFFSET</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1024</maxInt>
+            <minInt>-1024</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>-2</valInt>
+            <suffix>LSB</suffix>
+            <vTx>4</vTx>
+        </shuntHCOffset>
+        <voltageLCFactor>
+            <longName>Pack Voltage Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for ISL based voltage measurements. Only applies to ISL based voltage sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>VOLTAGE_LC_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>200</maxDouble>
+            <minDouble>-200</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>124</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </voltageLCFactor>
+        <voltageLCOffset>
+            <longName>Pack Voltage Offset</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for ISL based voltage measurements. Only applies to ISL based voltage sensor source. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>VOLTAGE_LC_OFFSET</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1024</maxInt>
+            <minInt>-1024</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix>LSB</suffix>
+            <vTx>4</vTx>
+        </voltageLCOffset>
+        <loadVoltageFactor>
+            <longName>Load Voltage Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for load MCU ADC voltage measurements.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>LOAD_VOLTAGE_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>135</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </loadVoltageFactor>
+        <loadVoltageOffset>
+            <longName>Load Voltage Offset</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for load voltage measurements. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>LOAD_VOLTAGE_OFFSET</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </loadVoltageOffset>
+        <chargerVoltageFactor>
+            <longName>Charger Voltage Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for charger MCU ADC voltage measurements.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGER_VOLTAGE_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>135</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </chargerVoltageFactor>
+        <chargerVoltageOffset>
+            <longName>Charger Voltage Offset</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for charger voltage measurements. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGER_VOLTAGE_OFFSET</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </chargerVoltageOffset>
+        <throttleChargeIncreaseRate>
+            <longName>Throttle charge increase rate</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Percentage charge throttle increase rate per 100ms (cell voltage loop time).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>THROTTLE_CHARGE_INCREASE_RATE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>100</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>2</valInt>
+            <suffix>% / 1000ms</suffix>
+            <vTx>1</vTx>
+        </throttleChargeIncreaseRate>
+        <throttleDisChargeIncreaseRate>
+            <longName>Throttle discharge increase rate</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Percentage discharge throttle increase rate per 100ms (cell voltage loop time)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>THROTTLE_DISCHARGE_INCREASE_RATE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>100</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>10</valInt>
+            <suffix>% / 1000ms</suffix>
+            <vTx>1</vTx>
+        </throttleDisChargeIncreaseRate>
+        <cellBalanceUpdateInterval>
+            <longName>Cell balance interval</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Keep calculated resistors enabled for this amount of time in miliseconds. When this time has elapsed a new cell measurement will be made to start a new round of balancing, this all loops automatically and only during charging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_BALANCE_UPDATE_INTERVAL</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>4000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </cellBalanceUpdateInterval>
+        <maxSimultaneousDischargingCells>
+            <longName>Max active bleed resistors per IC</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This value states the maximum amount of simultaneously active bleeding resistors per monitor IC (monitor group). This value thus limits the worst case max power dissipated on the BMS (or its slave modules) trough the bleeding reisistors. When the balancing portion of the BMS becomes to hot this value can be lowered to limit the temperature.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_BALANCE_MAX_SIMULTANEOUS_DISCHARGE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>18</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>5</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </maxSimultaneousDischargingCells>
+        <timeoutDischargeRetry>
+            <longName>Timeout discharge retry</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When for some reason the discharge output is disabled (most likely because of a low cell voltage), wait this amount of time before doing a new attempt to re-enable the discharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_DISCHARGE_RETRY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>4000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>10000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutDischargeRetry>
+        <hysteresisDischarge>
+            <longName>Discharge hysteresis</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The hysteris value of the load enable condition. Configuring this value correctly will greatly reduce the risk of load output on/off oscillations. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HYST_DISCHARGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.005</stepDouble>
+            <valDouble>0.02</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </hysteresisDischarge>
+        <timeoutChargeRetry>
+            <longName>Timeout charge retry</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When for some reason the charge input is disabled (most likely because of a high cell voltage), wait this amount of time before doing a new attempt to re-enable the charge input.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_DISCHARGE_RETRY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>4000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutChargeRetry>
+        <hysteresisCharge>
+            <longName>Charge hysteresis</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The hysteris value of the charger enable condition. Configuring this value correctly will greatly reduce the risk of charger input on/off oscillations. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HYST_DISCHARGE</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.005</stepDouble>
+            <valDouble>0.01</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>V</suffix>
+            <vTx>9</vTx>
+        </hysteresisCharge>
+        <timeoutChargeCompleted>
+            <longName>Timeout charge completed</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When balancing this amount of time is waited before declaring the battery 'charged'. The balancing will continue passed this event until no more balancing is needed. This is only to tell the user that it is charged enough to be used again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_CHARGE_COMPLETED</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>3600000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>1800000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutChargeCompleted>
+        <timeoutChargingCompletedMinimalMismatch>
+            <longName>Timeout charge completed min mismach</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If cell mismatch is under threshold and (charging is not allowed) wait this delay time to set &amp;quot;charged&amp;quot; state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_CHARGING_COMPLETED_MINIMAL_MISMATCH</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>3600000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>6000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutChargingCompletedMinimalMismatch>
+        <maxMismatchThreshold>
+            <longName>Mismatch threshold</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If mismatch is under this threshold for timeoutChargingCompletedMinimalMismatch determin fully charged.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_MISMATCH_THRESHOLD</cDefine>
+            <editorDecimalsDouble>3</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.005</stepDouble>
+            <valDouble>0.02</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </maxMismatchThreshold>
+        <chargerEnabledThreshold>
+            <longName>Charger enable threshold</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If charge current is above this threshold current stay in charging mode and don't power off.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGER_ENABLED_THRESHOLD</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>10</maxDouble>
+            <minDouble>0.05</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>A</suffix>
+            <vTx>9</vTx>
+        </chargerEnabledThreshold>
+        <timeoutChargerDisconnected>
+            <longName>Timeout charger disconnected</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Wait for this amount of time before responding to the event that the charger is disconnected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_CHARGER_DISCONNECTED</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>3600000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>2000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutChargerDisconnected>
+        <minimalPrechargePercentage>
+            <longName>Minimal precharge factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Output voltage should be at a minimal of this factor of pack voltage to enable the main output switch, this is to prevent large inrush currents.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Putting this value too low will result in a large inrush current because the battery and load voltage differ too much. Putting this threshold value too high could lead to the load never being enabled because the value cant be reached due to leakage current in combination with the pre charge resistor value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MINIMAL_PRECHARGE_PERCENTAGE</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>1</maxDouble>
+            <minDouble>0.01</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>0.8</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </minimalPrechargePercentage>
+        <timeoutLCPreCharge>
+            <longName>Timeout precharge</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Precharge timeout, allow this amount of time for the Pre-charging process. This time also defines the limit of power dissipation in the pre charge resistor. If your load capacitance is higher than 'normal' it might be worth increasing this value to let the pre-charge procedure succeed, but please monitor the temperature of the pre-charge resistor!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_LC_PRECHARGE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>10000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>1500</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutLCPreCharge>
+        <maxAllowedCurrent>
+            <longName>Max allowed current</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum allowed current trough the BMS.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_CURRENT</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>2500</maxDouble>
+            <minDouble>1</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>10</stepDouble>
+            <valDouble>120</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>A</suffix>
+            <vTx>9</vTx>
+        </maxAllowedCurrent>
+        <allowedTempBattDischargingMax>
+            <longName>Battery temperature discharging max</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature of the battery during discharging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_TEMP_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>60</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattDischargingMax>
+        <allowedTempBattDischargingMin>
+            <longName>Battery temperature discharging min</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature of the battery during discharging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MIN_ALLOWED_TEMP_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>-10</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattDischargingMin>
+        <allowedTempBattChargingMax>
+            <longName>Battery temperature charging max</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature of the battery during charging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_TEMP_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>55</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattChargingMax>
+        <allowedTempBattChargingMin>
+            <longName>Battery temperature charging min</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature of the battery during charging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MIN_ALLOWED_TEMP_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>10</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattChargingMin>
+        <allowedTempBattCoolingMax>
+            <longName>Battery temperature cooling max</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature at which the cooling/heating output is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_COOL_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>5</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattCoolingMax>
+        <allowedTempBattCoolingMin>
+            <longName>Battery temperature cooling min</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature at which the cooling/heating output is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MIN_ALLOWED_COOL_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>50</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattCoolingMin>
+        <allowedTempBMSMax>
+            <longName>BMS Temperature max</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature of the BMS.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_TEMP_BMS</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>90</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBMSMax>
+        <allowedTempBMSMin>
+            <longName>BMS Temperature min</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature of the BMS.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MIN_ALLOWED_TEMP_BMS</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>-20</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBMSMin>
+        <displayTimeoutBatteryDead>
+            <longName>Display time battery dead</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Show battery dead symbol this amount of time before going to powerdown in cell voltage error state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>DISP_TIMEOUT_DEAD</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>100</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>5000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </displayTimeoutBatteryDead>
+        <displayTimeoutBatteryError>
+            <longName>Display time battery error</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Show error symbol for this amount of time before going to powerdown in general error state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>DISP_TIMEOUT_ERROR</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>100</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>2000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </displayTimeoutBatteryError>
+        <displayTimeoutBatteryErrorPreCharge>
+            <longName>Display time precharge error</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Show pre charge error for this amount of time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>DISP_TIMEOUT_ERROR_PRECHARGE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>100</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>10000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </displayTimeoutBatteryErrorPreCharge>
+        <displayTimeoutSplashScreen>
+            <longName>Display time precharge splash</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Show splash screen for this amount of time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>DISP_TIMEOUT_SPLASH_SCREEN</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>100</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>1000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </displayTimeoutSplashScreen>
+        <maxUnderAndOverVoltageErrorCount>
+            <longName>Max OVP &amp; UVP errors</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Max count of hard cell voltage errors before actually shutting the BMS down. This value allowes you to ignore the occationally crossing of the hard cell voltage limits. This is to for example filter out the voltage spikes from extreme EMC situation (ie. static discharge).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_UNDER_OVERVOLTAGE_ERR_COUNT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>5</valInt>
+            <suffix></suffix>
+            <vTx>2</vTx>
+        </maxUnderAndOverVoltageErrorCount>
+        <notUsedCurrentThreshold>
+            <longName>Not used current threshold</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If the absolute battery current is below this threshold start keeping track of time and wait for the not used timeout to trigger. The not used timer will be reset if the absolute battery current passes this threshold.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NOT_USED_CURRENT_THRESHOLD</cDefine>
+            <editorDecimalsDouble>2</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>10</maxDouble>
+            <minDouble>1</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.1</stepDouble>
+            <valDouble>0.5</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix>A</suffix>
+            <vTx>9</vTx>
+        </notUsedCurrentThreshold>
+        <notUsedTimeout>
+            <longName>Not used timeout</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If the absolute battery current is below the not used battery current threshold start keeping track of time and wait for the not used timeout to trigger (happens when the amount of time defined here is crossed). The not used timer will be reset if the absolute battery current is higher than the &amp;quot;Not used current threshold&amp;quot;. To disable the not used powerdown system this value can be set to 0ms, else if used, it should be a minimal of 5000ms.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NOT_USED_TIMEOUT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>3600000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </notUsedTimeout>
+        <powerDownDelay>
+            <longName>Power down delay</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The amount of time between disabeling the output and actually powerdown of the BMS. When implementing push to BMS enable the connected ESC might re-enable the BMS once it is powered down due to some residual energy in the ESC, this oscillation will prevent the whole system to actually completely power down. By setting this time to a longer time you have a higher chance of actually powering everything down, a lower time will turn it down quicker with the risk of oscillation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>POWER_DOWN_DELAY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>1000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </powerDownDelay>
+        <stateOfChargeStoreInterval>
+            <longName>State of charge store interval</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Interval in ms to store state of charge information. to reserve flash write cycles please dont make this value too low. Normally the state of charge value is also stored when the BMS is powered down. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>SOC_STORE_INTERVAL</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>60000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </stateOfChargeStoreInterval>
+        <stateOfChargeMethod>
+            <longName>State of charge method</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The state of charge estimation method the BMS should use.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CELL_SOC_METHOD</cDefine>
+            <valInt>1</valInt>
+            <enumNames>None</enumNames>
+            <enumNames>Coulomb counting</enumNames>
+            <enumNames>Coulomb counting + CellVoltage lookup</enumNames>
+        </stateOfChargeMethod>
+        <CANID>
+            <longName>CAN ID</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID this BMS listens to and leaves behind when talking on the CAN bus.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CAN_ID</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>254</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>10</valInt>
+            <suffix></suffix>
+            <vTx>2</vTx>
+        </CANID>
+        <CANIDStyle>
+            <longName>CAN ID Style</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID style / ID byte order. This is configureable to stay compatible with the VESC style and the style used in an e-foil project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CAN_ID_STYLE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>ENNOID / DiebieMS / VESC</enumNames>
+            <enumNames>EFoiler</enumNames>
+        </CANIDStyle>
+        <CANBaudRate>
+            <longName>CAN throughput</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;CAN bus communication speed.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CAN_SPEED</cDefine>
+            <valInt>0</valInt>
+            <enumNames>125kbit/s</enumNames>
+            <enumNames>250kbit/s</enumNames>
+            <enumNames>500kbit/s</enumNames>
+        </CANBaudRate>
+        <emitStatusOverCAN>
+            <longName>Emit status over CAN</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Send status information like current, voltage, temperatures and out/input enabled states over CAN.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CAN_STATUS_EMIT_ENABLE</cDefine>
+            <valInt>1</valInt>
+        </emitStatusOverCAN>
+        <emitStatusProtocolType>
+            <longName>Emit status protocol</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Send status protocol/format; how the status information is packaged in can messages.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CAN_STATUS_PROTOCOL</cDefine>
+            <valInt>1</valInt>
+            <enumNames>None</enumNames>
+            <enumNames>ENNOID / DiebieMS</enumNames>
+            <enumNames>MG Electronics</enumNames>
+        </emitStatusProtocolType>
+        <waterSensorEnableMask>
+            <longName>Water sensor enable mask</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tell what sensor input to use for the water detection system. The bitwise representation of this decimal value will show what sensor is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>WATER_DETECT_SENSOR_ENABLE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>32768</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix></suffix>
+            <vTx>4</vTx>
+        </waterSensorEnableMask>
+        <waterSensorThreshold>
+            <longName>Water detect threshold</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If an active water detection input rises above this value then water sensed is being stated and emitted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>WATER_DETECT_THRESHOLD</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>100</maxDouble>
+            <minDouble>-60</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>10</valDouble>
+            <vTxDoubleScale>1</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </waterSensorThreshold>
+        <tempEnableMaskBMS>
+            <longName>Temp sensor enable mask BMS</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tell what temperature sensor to use for the BMS temperature stats. The bitwise representation of this decimal value will show what sensor is enabled. The sensor order is as follows:&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_ENABLE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_LTC_NTC1&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_LTC_CHIP&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_STM_NTC&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC0&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC1&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC2&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC3&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC4&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC5&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_ADC_NTC6&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_ADC_NTC7&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_SHT&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For example, making this value 4 ( 0b0000000000100 )  will enable only the internal LTC temperature sensor. Making this value 8 ( 0b0000000001000 ) will only enable the ntc that is connected to the STM. When it is 12 (4+8) or ( 0b0000000001100 ) both the internal LTC temperature sensor and the NTC connected to the STM will be enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TEMPERATURE_ENABLE_MASK_BMS</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>100000000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>8</valInt>
+            <suffix></suffix>
+            <vTx>5</vTx>
+        </tempEnableMaskBMS>
+        <tempEnableMaskBattery>
+            <longName>Temp sensor enable mask Battery</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Slave Module temperature 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TEMPERATURE_ENABLE_MASK_BATTERY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>1</valInt>
+            <suffix></suffix>
+            <vTx>5</vTx>
+        </tempEnableMaskBattery>
+        <noOfTempSensorPerModule>
+            <longName>Temp sensor per module</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Temperature sensor per slave module.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_TEMP_SENSOR_PER_MODULE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>9</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>5</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfTempSensorPerModule>
+        <LCUseDischarge>
+            <longName>Discharge output</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use master BMS discharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>LC_USE_DISCHARGE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>Disabled</enumNames>
+            <enumNames>Enabled</enumNames>
+        </LCUseDischarge>
+        <LCUsePrecharge>
+            <longName>Precharge output</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use master BMS precharge for discharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>LC_USE_PRECHARGE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>Disabled</enumNames>
+            <enumNames>Enabled</enumNames>
+            <enumNames>Forced</enumNames>
+        </LCUsePrecharge>
+        <allowChargingDuringDischarge>
+            <longName>Allow charging during discharge</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Allow the battery to be charged whilst the output is turned on. This would allow you to use the battery during charging.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>ALLOW_CHARGE_DURING_DISCHARGE</cDefine>
+            <valInt>1</valInt>
+        </allowChargingDuringDischarge>
+        <allowForceOn>
+            <longName>Allow forced on mode</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the power button is configured as a pulse switch and allowForceOn you can force the BMS to stay on ignoring the cell voltage inputs. This function can be used to get home in a skateboard application when you know the battery is OK for example a wire came lose from a cell tab of the battery. This is risky! Because you can deeply discharge the battery this way. You can't charge the battery in this mode.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The forced-on method is activated when you long press (about 10 seconds) the power button when the bms is off. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>ALLOW_FORCE_ON</cDefine>
+            <valInt>0</valInt>
+        </allowForceOn>
+        <extEnableState>
+            <longName>External enable opstate</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Defines the state to be entered when enabled by an external enable reason like CAN_5V_ENABLE present or USB 5V voltage present.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>EXT_ENA_OP_STATE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>External operation</enumNames>
+            <enumNames>Normal operation</enumNames>
+        </extEnableState>
+        <chargeEnableState>
+            <longName>Charger enable opstate</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Defines the state to be entered when the BMS is enabled by charge voltage present.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGE_ENA_OP_STATE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Charge operation</enumNames>
+            <enumNames>Normal operation</enumNames>
+        </chargeEnableState>
+        <pulseToggleButton>
+            <longName>Pulse or toggle power button</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Configure the power button to be either a pulse or a toggle button. The method of reading the power button input will depend on this setting. When configured as a pulse input and with a pulse switch a short press will enable the BMS and a long pres when the BMS is on will power it down. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When using a toggle switch the BMS is turned on when the switch closes and turnes off when the switch is opened up. Please be aware the the BMS also turnes of when it is not used. When it turned off by itself the BMS needs at least 10 seconds of the switch to be opened before it can be enabled again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>BUTTON_PULSE_TOGGLE</cDefine>
+            <valInt>1</valInt>
+            <enumNames>Latching / Toggle</enumNames>
+            <enumNames>Momentary / Pulse</enumNames>
+        </pulseToggleButton>
+        <useCANSafetyInput>
+            <longName>Use safety input status from CAN</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Extra safety input method to disable the output when the message states a non safe condition. Ex: Voltage isolation monitoring. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The messages generated by an external device are received and used by the BMS to prefent unsafe power usage. Set to false to disable this feature.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>USE_CAN_SAFETY</cDefine>
+            <valInt>0</valInt>
+        </useCANSafetyInput>
+        <useCANDelayedPowerDown>
+            <longName>Use delayed power down from CAN</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This feature puts a CAN device in control of the power state of the BMS. A device can postpone the power down moment of the battery. This can be used to do a gracefull power down of a device. When not used set this value to false.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>USE_CAN_DELAYED_POWERDOWN</cDefine>
+            <valInt>0</valInt>
+        </useCANDelayedPowerDown>
+        <HCUseRelay>
+            <longName>Use relay output</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use slave BMS relay output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_USE_RELAY</cDefine>
+            <valInt>1</valInt>
+        </HCUseRelay>
+        <HCUsePrecharge>
+            <longName>Use relay precharge output</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use slave BMS relay precharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_USE_PRECHARGE</cDefine>
+            <valInt>1</valInt>
+        </HCUsePrecharge>
+        <HCUseLoadDetect>
+            <longName>Use relay load detect</longName>
+            <type>5</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use the voltage drop acros the HC load output precharge resistor to detect a minimal load before enabling the path completely.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_USE_LOAD_DETECT</cDefine>
+            <valInt>0</valInt>
+        </HCUseLoadDetect>
+        <HCLoadDetectThreshold>
+            <longName>Load detect threshold</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The high current output load detect precharge time threshold. If precharging takes longer than this time then load present is assumed and emitted.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_LOAD_DETECT_THRESHOLD</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>200</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>300</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </HCLoadDetectThreshold>
+        <HCLoadVoltageDataSource>
+            <longName>Voltage data source</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The HC load voltage data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_LOAD_VOLTAGE_DATA_SOURCE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>NoSource</enumNames>
+            <enumNames>ISL28022 (I2C2 - 0x40) LV BatteryInput</enumNames>
+            <enumNames>ISL28022 (I2C1 - 0x44) LV LoadOutput</enumNames>
+            <enumNames>ISL28022 (I2C1 - 0x45) DCDC</enumNames>
+            <enumNames>ADS1015 (AN01) HV BatteryInput</enumNames>
+            <enumNames>ADS1015 (AN23) HV LoadOutput</enumNames>
+            <enumNames>SumOfIndividualCellVoltages</enumNames>
+            <enumNames>CAN-&gt;DieBieShunt</enumNames>
+            <enumNames>CAN-&gt;Isabellenhutte</enumNames>
+        </HCLoadVoltageDataSource>
+        <HCLoadCurrentDataSource>
+            <longName>Current data source</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The HC load voltage data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>HC_LOAD_VOLTAGE_DATA_SOURCE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>NoSource</enumNames>
+            <enumNames>ISL28022 (I2C2 - 0x40) LV LC shunt</enumNames>
+            <enumNames>ISL28022 (I2C1 - 0x44) LV HC shunt</enumNames>
+            <enumNames>ISL28022 (I2C1 - 0x45) DCDC shunt</enumNames>
+            <enumNames>CAN-&gt;DieBieShunt</enumNames>
+            <enumNames>CAN-&gt;Isabellenhutte</enumNames>
+        </HCLoadCurrentDataSource>
+        <timeoutHCPreCharge>
+            <longName>Timeout precharge</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Slave precharge error timeout, allow xxxms pre-charge time before declaring load error.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_HC_PRECHARGE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>30000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>1500</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutHCPreCharge>
+        <timeoutHCPreChargeRetryInterval>
+            <longName>Precharge retry interval</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When pre charge failes wait this long in ms before trying again. Set to 0 to disable retry.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_HC_PRECHARGE_RETRY_INTERVAL</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>3600000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1000</stepInt>
+            <valInt>20000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutHCPreChargeRetryInterval>
+        <timeoutHCRelayOverlap>
+            <longName>Precharge relay overlap</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When precharge succeeds enable both relay and precharge combined for this time, then go to relay only. This will cover the time that the relay needs to close, because relays are slow :).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>TIMEOUT_HC_RELAY_OVERLAP</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>3600000</maxInt>
+            <minInt>100</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>1000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </timeoutHCRelayOverlap>
+        <NTCLTCTopResistor>
+            <longName>NTC LTC top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_TOP_RESISTOR_LTC</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCLTCTopResistor>
+        <NTCLTC25Deg>
+            <longName>NTC LTC 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_25_DEG_LTC</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCLTC25Deg>
+        <NTCLTCBeta>
+            <longName>NTC LTC Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_BETA_LTC</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4100</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCLTCBeta>
+        <NTCPCBTopResistor>
+            <longName>NTC PCB top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_TOP_RESISTOR_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCPCBTopResistor>
+        <NTCPCB25Deg>
+            <longName>NTC PCB 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_25_DEG_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCPCB25Deg>
+        <NTCPCBBeta>
+            <longName>NTC PCB Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_BETA_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4100</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCPCBBeta>
+        <NTCHiAmpExtTopResistor>
+            <longName>NTC HiAmp Ext. top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_TOP_RESISTOR_HIAMP_EXT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpExtTopResistor>
+        <NTCHiAmpExt25Deg>
+            <longName>NTC HiAmp Ext. 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_25_DEG_HIAMP_EXT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpExt25Deg>
+        <NTCHiAmpExtBeta>
+            <longName>NTC HiAmp Ext. Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_BETA_HIAMP_EXT</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4390</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCHiAmpExtBeta>
+        <NTCHiAmpPCBTopResistor>
+            <longName>NTC HiAmp PCB top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_TOP_RESISTOR_HIAMP_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpPCBTopResistor>
+        <NTCHiAmpPCB25Deg>
+            <longName>NTC HiAmp PCB 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_25_DEG_HIAMP_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpPCB25Deg>
+        <NTCHiAmpPCBBeta>
+            <longName>NTC HiAmp PCB Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_BETA_HIAMP_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4100</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCHiAmpPCBBeta>
+        <NTCHiAmpAUXTopResistor>
+            <longName>NTC HiAmp AUX top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_TOP_RESISTOR_HIAMP_AUX</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpAUXTopResistor>
+        <NTCHiAmpAUX25Deg>
+            <longName>NTC HiAmp AUX 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_25_DEG_HIAMP_AUX</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCHiAmpAUX25Deg>
+        <NTCHiAmpAUXBeta>
+            <longName>NTC HiAmp AUX Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NTC_BETA_HIAMP_AUX</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4390</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCHiAmpAUXBeta>
+        <AUX0SignalSource>
+            <longName>Mode</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Signal source for the output enable state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX0_SIGN_SOURCE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Off</enumNames>
+            <enumNames>On</enumNames>
+            <enumNames>ChargeAllowed</enumNames>
+            <enumNames>LCDisChargeAllowed</enumNames>
+            <enumNames>LCDischargeEnabled</enumNames>
+            <enumNames>Signal01</enumNames>
+            <enumNames>Signal02</enumNames>
+            <enumNames>Signal03</enumNames>
+            <enumNames>Signal04</enumNames>
+            <enumNames>Condition01</enumNames>
+            <enumNames>Condition02</enumNames>
+            <enumNames>Condition03</enumNames>
+            <enumNames>Condition04</enumNames>
+        </AUX0SignalSource>
+        <AUX0TurnOnDelay>
+            <longName>Turn on delay</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Delay before turning on the output, this could prevent accidental turn on.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX0_TURNON_DELAY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>250</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </AUX0TurnOnDelay>
+        <AUX0TurnOffDelay>
+            <longName>Turn off delay</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Delay before turning off the output, this could prevent accidental turn off.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX0_TURNOFF_DELAY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>5000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </AUX0TurnOffDelay>
+        <AUX1SignalSource>
+            <longName>Mode</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Signal source for the output enable state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX1_SIGN_SOURCE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Off</enumNames>
+            <enumNames>On</enumNames>
+            <enumNames>ChargeAllowed</enumNames>
+            <enumNames>LCDisChargeAllowed</enumNames>
+            <enumNames>LCDischargeEnabled</enumNames>
+            <enumNames>Signal01</enumNames>
+            <enumNames>Signal02</enumNames>
+            <enumNames>Signal03</enumNames>
+            <enumNames>Signal04</enumNames>
+            <enumNames>Condition01</enumNames>
+            <enumNames>Condition02</enumNames>
+            <enumNames>Condition03</enumNames>
+            <enumNames>Condition04</enumNames>
+        </AUX1SignalSource>
+        <AUX1TurnOnDelay>
+            <longName>Turn on delay</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Delay before turning on the output, this could prevent accidental turn on.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX1_TURNON_DELAY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>250</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </AUX1TurnOnDelay>
+        <AUX1TurnOffDelay>
+            <longName>Turn off delay</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Delay before turning off the output, this could prevent accidental turn off.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>AUX1_TURNOFF_DELAY</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>86400000</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>100</stepInt>
+            <valInt>5000</valInt>
+            <suffix>ms</suffix>
+            <vTx>5</vTx>
+        </AUX1TurnOffDelay>
+    </Params>
+    <SerOrder>
+        <ser>noOfCellsSeries</ser>
+        <ser>noOfCellsParallel</ser>
+        <ser>noOfParallelModules</ser>
+        <ser>batteryCapacity</ser>
+        <ser>cellHardUnderVoltage</ser>
+        <ser>cellHardOverVoltage</ser>
+        <ser>cellLCSoftUnderVoltage</ser>
+        <ser>cellSoftOverVoltage</ser>
+        <ser>cellBalanceDifferenceThreshold</ser>
+        <ser>cellBalanceStart</ser>
+        <ser>cellThrottleUpperStart</ser>
+        <ser>cellThrottleLowerStart</ser>
+        <ser>cellThrottleUpperMargin</ser>
+        <ser>cellThrottleLowerMargin</ser>
+        <ser>packVoltageDataSource</ser>
+        <ser>packCurrentDataSource</ser>
+        <ser>buzzerSignalSource</ser>
+        <ser>buzzerSignalType</ser>
+        <ser>buzzerPersistent</ser>
+        <ser>shuntLCFactor</ser>
+        <ser>shuntLCOffset</ser>
+        <ser>voltageLCFactor</ser>
+        <ser>voltageLCOffset</ser>
+        <ser>loadVoltageFactor</ser>
+        <ser>loadVoltageOffset</ser>
+        <ser>chargerVoltageFactor</ser>
+        <ser>chargerVoltageOffset</ser>
+        <ser>throttleChargeIncreaseRate</ser>
+        <ser>throttleDisChargeIncreaseRate</ser>
+        <ser>cellBalanceUpdateInterval</ser>
+        <ser>maxSimultaneousDischargingCells</ser>
+        <ser>timeoutDischargeRetry</ser>
+        <ser>hysteresisDischarge</ser>
+        <ser>timeoutChargeRetry</ser>
+        <ser>hysteresisCharge</ser>
+        <ser>timeoutChargeCompleted</ser>
+        <ser>timeoutChargingCompletedMinimalMismatch</ser>
+        <ser>maxMismatchThreshold</ser>
+        <ser>chargerEnabledThreshold</ser>
+        <ser>timeoutChargerDisconnected</ser>
+        <ser>minimalPrechargePercentage</ser>
+        <ser>timeoutLCPreCharge</ser>
+        <ser>maxAllowedCurrent</ser>
+        <ser>allowedTempBattDischargingMax</ser>
+        <ser>allowedTempBattDischargingMin</ser>
+        <ser>allowedTempBattChargingMax</ser>
+        <ser>allowedTempBattChargingMin</ser>
+        <ser>allowedTempBattCoolingMax</ser>
+        <ser>allowedTempBattCoolingMin</ser>
+        <ser>allowedTempBMSMax</ser>
+        <ser>allowedTempBMSMin</ser>
+        <ser>displayTimeoutBatteryDead</ser>
+        <ser>displayTimeoutBatteryError</ser>
+        <ser>displayTimeoutBatteryErrorPreCharge</ser>
+        <ser>displayTimeoutSplashScreen</ser>
+        <ser>maxUnderAndOverVoltageErrorCount</ser>
+        <ser>notUsedCurrentThreshold</ser>
+        <ser>notUsedTimeout</ser>
+        <ser>stateOfChargeStoreInterval</ser>
+        <ser>stateOfChargeMethod</ser>
+        <ser>CANID</ser>
+        <ser>CANIDStyle</ser>
+        <ser>CANBaudRate</ser>
+        <ser>emitStatusOverCAN</ser>
+        <ser>emitStatusProtocolType</ser>
+        <ser>tempEnableMaskBMS</ser>
+        <ser>tempEnableMaskBattery</ser>
+        <ser>noOfTempSensorPerModule</ser>
+        <ser>LCUseDischarge</ser>
+        <ser>LCUsePrecharge</ser>
+        <ser>allowChargingDuringDischarge</ser>
+        <ser>allowForceOn</ser>
+        <ser>pulseToggleButton</ser>
+        <ser>useCANSafetyInput</ser>
+        <ser>useCANDelayedPowerDown</ser>
+        <ser>NTCLTCTopResistor</ser>
+        <ser>NTCLTC25Deg</ser>
+        <ser>NTCLTCBeta</ser>
+        <ser>NTCPCBTopResistor</ser>
+        <ser>NTCPCB25Deg</ser>
+        <ser>NTCPCBBeta</ser>
+        <ser>cellMonitorICType</ser>
+        <ser>cellMonitorICCount</ser>
+        <ser>extEnableState</ser>
+        <ser>chargeEnableState</ser>
+        <ser>powerDownDelay</ser>
+    </SerOrder>
+</ConfigParams>

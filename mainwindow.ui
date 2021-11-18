@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ENNOID-BMS Tool</string>
+   <string>MaxkGo-BMS Tool</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
@@ -92,7 +92,7 @@
      <x>0</x>
      <y>0</y>
      <width>1054</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -324,10 +324,10 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>About ENNOID-BMS Tool</string>
+    <string>About MaxkGo-BMS Tool</string>
    </property>
    <property name="toolTip">
-    <string>About ENNOID-BMS Tool</string>
+    <string>About MaxkGo-BMS Tool</string>
    </property>
   </action>
   <action name="actionParameterEditorBMScconf">
@@ -491,10 +491,10 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>ENNOID-BMS Tool Changelog</string>
+    <string>MaxkGo-BMS Tool Changelog</string>
    </property>
    <property name="toolTip">
-    <string>ENNOID-BMS Tool Changelog</string>
+    <string>MaxkGo-BMS Tool Changelog</string>
    </property>
   </action>
   <action name="actionFirmwareChangelog">

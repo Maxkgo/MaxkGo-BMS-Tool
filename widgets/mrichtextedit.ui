@@ -10,6 +10,11 @@
     <height>290</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>MS Shell Dlg 2</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string notr="true"/>
   </property>

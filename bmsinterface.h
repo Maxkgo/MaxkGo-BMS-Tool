@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -38,7 +42,10 @@
 #include "configparams.h"
 #include "commands.h"
 #include "packet.h"
+
+#ifdef HAS_BLUETOOTH
 #include "bleuart.h"
+#endif
 
 class BMSInterface : public QObject
 {
@@ -55,9 +62,43 @@ public:
     Q_INVOKABLE void emitStatusMessage(const QString &msg, bool isGood);
     Q_INVOKABLE void emitMessageDialog(const QString &title, const QString &msg, bool isGood, bool richText = false);
     Q_INVOKABLE bool fwRx();
+    Q_INVOKABLE void storeSettings();
+    //Q_INVOKABLE QVariantList getProfiles();
+    //Q_INVOKABLE void addProfile(QVariant profile);
+    //Q_INVOKABLE void clearProfiles();
+    //Q_INVOKABLE void deleteProfile(int index);
+    //Q_INVOKABLE void moveProfileUp(int index);
+    //Q_INVOKABLE void moveProfileDown(int index);
+    //Q_INVOKABLE MCCONF_TEMP getProfile(int index);
+    //Q_INVOKABLE void updateProfile(int index, QVariant profile);
+    //Q_INVOKABLE bool isProfileInUse(int index);
+    //Q_INVOKABLE MCCONF_TEMP createMcconfTemp();
+    //Q_INVOKABLE void updateMcconfFromProfile(MCCONF_TEMP profile);
+//    Q_INVOKABLE QStringList getPairedUuids();
+//    Q_INVOKABLE bool addPairedUuid(QString uuid);
+//    Q_INVOKABLE bool deletePairedUuid(QString uuid);
+//    Q_INVOKABLE void clearPairedUuids();
+//    Q_INVOKABLE bool hasPairedUuid(QString uuid);
+ //   Q_INVOKABLE QString getConnectedUuid();
+ //   Q_INVOKABLE bool isIntroDone();
+ //   Q_INVOKABLE void setIntroDone(bool done);
+  //  Q_INVOKABLE QString getLastTcpServer() const;
+  //  Q_INVOKABLE int getLastTcpPort() const;
+//#ifdef HAS_SERIALPORT
+//    Q_INVOKABLE QString getLastSerialPort() const;
+//    Q_INVOKABLE int getLastSerialBaud() const;
+//#endif
+    bool swdEraseFlash();
+    bool swdUploadFw(QByteArray newFirmware, uint32_t startAddr = 0);
+    void swdCancel();
+    bool swdReboot();
+
+#ifdef HAS_BLUETOOTH
     Q_INVOKABLE BleUart* bleDevice();
     Q_INVOKABLE void storeBleName(QString address, QString name);
     Q_INVOKABLE QString getBleName(QString address);
+    Q_INVOKABLE QString getLastBleAddr() const;
+#endif
 
     // Connection
     Q_INVOKABLE bool isPortConnected();
@@ -71,6 +112,9 @@ public:
     Q_INVOKABLE void connectBle(QString address);
     Q_INVOKABLE bool isAutoconnectOngoing() const;
     Q_INVOKABLE double getAutoconnectProgress() const;
+    Q_INVOKABLE QVector<int> scanCan();
+    Q_INVOKABLE QVector<int> getCanDevsLast() const;
+    Q_INVOKABLE void ignoreCanChange(bool ignore);
 
 signals:
     void statusMessage(const QString &msg, bool isGood);
@@ -81,6 +125,7 @@ signals:
     void portConnectedChanged();
     void autoConnectProgressUpdated(double progress, bool isOngoing);
     void autoConnectFinished();
+    void pairingListUpdated();
 
 public slots:
 
@@ -116,6 +161,8 @@ private:
 
     QSettings mSettings;
     QHash<QString, QString> mBleNames;
+    QVariantList mProfiles;
+    QStringList mPairedUuids;
 
     ConfigParams *mbmsConfig;
     ConfigParams *mInfoConfig;
@@ -129,6 +176,8 @@ private:
     QString mFwTxt;
     QString mHwTxt;
     bool mIsUploadingFw;
+
+    bool mCancelSwdUpload;
 
     // Connections
     conn_t mLastConnType;
@@ -144,14 +193,18 @@ private:
     QString mLastTcpServer;
     int mLastTcpPort;
 
+#ifdef HAS_BLUETOOTH
     BleUart *mBleUart;
     QString mLastBleAddr;
-
+#endif
     bool mSendCanBefore = false;
     int mCanIdBefore = 0;
     bool mWasConnected;
     bool mAutoconnectOngoing;
     double mAutoconnectProgress;
+    bool mIgnoreCanChange;
+
+    QVector<int> mCanDevsLast;
 
     void updateFwRx(bool fwRx);
     void setLastConnectionType(conn_t type);

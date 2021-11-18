@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -77,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mTimer = new QTimer(this);
     mKeyLeft = false;
     mKeyRight = false;
-    mMcConfRead = false;
+    mbmsConfigRead = false;
 
     connect(mTimer, SIGNAL(timeout()),this, SLOT(timerSlot()));
     connect(mDieBieMS, SIGNAL(statusMessage(QString,bool)),this, SLOT(showStatusInfo(QString,bool)));
@@ -115,7 +119,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    mPageDebugPrint->printConsole("DieBieMSTool " + mVersion + " started<br>");
+    mPageDebugPrint->printConsole("MaxkGo-BMS Tool " + mVersion + " started<br>");
 }
 
 MainWindow::~MainWindow()
@@ -157,10 +161,12 @@ void MainWindow::timerSlot()
         ui->actionCanFwd->setChecked(mDieBieMS->commands()->getSendCan());
     }
 
-    // RT data only every 5 iterations
+    // RT value data only every 5 iterations. Cells, aux & expansion_temp only every 20 iterations
     if (ui->actionRtData->isChecked()) {
         static int values_cnt = 0;
         static int cells_cnt = 0;
+        static int aux_cnt = 0;
+        static int exp_temp_cnt = 0;
 
         values_cnt++;
         if(values_cnt >= 5) {
@@ -172,6 +178,18 @@ void MainWindow::timerSlot()
         if(cells_cnt >= 20) {
             cells_cnt = 0;
             mDieBieMS->commands()->getCells();
+        }
+
+        aux_cnt++;
+        if(aux_cnt >= 20) {
+            aux_cnt = 0;
+            mDieBieMS->commands()->getAux();
+        }
+
+        exp_temp_cnt++;
+        if(exp_temp_cnt >= 20) {
+            exp_temp_cnt = 0;
+            mDieBieMS->commands()->getExpansionTemp();
         }
     }
 
@@ -185,13 +203,13 @@ void MainWindow::timerSlot()
         }
     }
 
-    // Read configuration it isn't read since starting VESC Tool
+    // Read configuration it isn't read since starting ENNOID-BMS Tool
     if (mDieBieMS->isPortConnected()) {
         static int conf_cnt = 0;
         conf_cnt++;
         if (conf_cnt >= 20) {
             conf_cnt = 0;
-            if (!mMcConfRead) {
+            if (!mbmsConfigRead) {
                 mDieBieMS->commands()->getBMSconf();
             }
         }
@@ -303,7 +321,7 @@ void MainWindow::serialPortNotWritable(const QString &port)
 
 void MainWindow::bmsconfUpdated()
 {
-    mMcConfRead = true;
+    mbmsConfigRead = true;
 }
 
 void MainWindow::bmsConfigCheckResult(QStringList paramsNotSet)
@@ -407,7 +425,7 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, "ENNOID-BMS Tool", Utility::aboutText());
+    QMessageBox::about(this, "MaxkGo-BMS Tool", Utility::aboutText());
 }
 
 void MainWindow::on_actionLibrariesUsed_triggered()
@@ -433,7 +451,7 @@ void MainWindow::saveParamFileDialog(QString conf, bool wrapIfdef)
 {
     ConfigParams *params = 0;
 
-    if (conf.toLower() == "mcconf") {
+    if (conf.toLower() == "bmsconf") {
         params = mDieBieMS->bmsConfig();
     } else {
         qWarning() << "Invalid conf" << conf;
@@ -506,7 +524,7 @@ void MainWindow::reloadPages()
     mPageMasterSettings = new PageMasterSettings(this);
     mPageMasterSettings->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageMasterSettings);
-    addPageItem(tr("Master Settings"), "://res/icons/Outgoing Data-96.png", "", true);
+    addPageItem(tr("Settings"), "://res/icons/Outgoing Data-96.png", "", true);
 
     mPageMasterGeneral = new PageMasterGeneral(this);
     mPageMasterGeneral->setDieBieMS(mDieBieMS);
@@ -532,11 +550,11 @@ void MainWindow::reloadPages()
     mPageMasterDisplay->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageMasterDisplay);
     addPageItem(tr("Display"), "://res/icons/Calculator-96.png","", false, true);
-
+/*
     mSlaveSettings = new PageSlaveSettings(this);
     mSlaveSettings->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mSlaveSettings);
-    addPageItem(tr("Slave Settings"), "://res/icons/Outgoing Data-96.png", "", true);
+    addPageItem(tr("Expansion Board Settings"), "://res/icons/Outgoing Data-96.png", "", true);
 
     mPageSlaveGeneral = new PageSlaveGeneral(this);
     mPageSlaveGeneral->setDieBieMS(mDieBieMS);
@@ -557,7 +575,7 @@ void MainWindow::reloadPages()
     mPageSlaveFANs->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageSlaveFANs);
     addPageItem(tr("FANs"), "://res/icons/fan-96.png","", false, true);
-
+*/
     mPageDataAnalysis = new PageDataAnalysis(this);
     mPageDataAnalysis->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageDataAnalysis);
@@ -606,19 +624,19 @@ void MainWindow::checkUdev()
 #ifdef Q_OS_LINUX
     QFileInfo fi_mm("/lib/udev/rules.d/77-mm-usb-device-blacklist.rules");
     if (fi_mm.exists()) {
-        QFileInfo fi_bms("/lib/udev/rules.d/45-vesc.rules");
+        QFileInfo fi_vesc("/lib/udev/rules.d/45-vesc.rules");
         if (!fi_vesc.exists()) {
             QMessageBox::StandardButton reply;
             reply = QMessageBox::information(this,
                                              tr("Modemmenager"),
                                              tr("It looks like modemmanager is installed on your system, and that "
-                                                "there are no VESC udev rules installed. This will cause a delay "
-                                                "from when you plug in the VESC until you can use it. Would you like "
-                                                "to add a udev rule to prevent modemmanager from grabbing the VESC?"),
+                                                "there are no ENNOID-BMS udev rules installed. This will cause a delay "
+                                                "from when you plug in the ENNOID-BMS until you can use it. Would you like "
+                                                "to add a udev rule to prevent modemmanager from grabbing the ENNOID-BMS?"),
                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 
             if (reply == QMessageBox::Yes) {
-                QFile f_bms(QDir::temp().absoluteFilePath(fi_vesc.fileName()));
+                QFile f_vesc(QDir::temp().absoluteFilePath(fi_vesc.fileName()));
                 if (!f_vesc.open(QIODevice::WriteOnly | QIODevice::Text)) {
                     showMessageDialog(tr("Create File Error"),
                                       f_vesc.errorString(),
@@ -626,7 +644,7 @@ void MainWindow::checkUdev()
                     return;
                 }
 
-                f_vesc.write("# Prevent modemmanager from grabbing the VESC\n"
+                f_vesc.write("# Prevent modemmanager from grabbing the ENNOID-BMS\n"
                              "ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"5740\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"\n");
                 f_vesc.close();
 
@@ -752,12 +770,12 @@ void MainWindow::on_actionParameterEditorInfo_triggered()
 
 void MainWindow::on_actionSaveBMSConfigurationHeader_triggered()
 {
-    saveParamFileDialog("mcconf", false);
+    saveParamFileDialog("bmsconf", false);
 }
 
 void MainWindow::on_actionSaveBMSConfigurationHeaderWrap_triggered()
 {
-    saveParamFileDialog("mcconf", true);
+    saveParamFileDialog("bmsconf", true);
 }
 
 void MainWindow::on_actionTerminalPrintFaults_triggered()
@@ -801,7 +819,7 @@ void MainWindow::on_actionWarrantyStatement_triggered()
 
 void MainWindow::on_actionDieBieMSToolChangelog_triggered()
 {
-    HelpDialog::showHelp(this, "ENNOID-BMS Tool Changelog", Utility::vescToolChangeLog());
+    HelpDialog::showHelp(this, "MaxkGo-BMS Tool Changelog", Utility::vescToolChangeLog());
 }
 
 void MainWindow::on_actionFirmwareChangelog_triggered()

@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
+import Vedder.vesc.bmsinterface 1.0
 import Vedder.vesc.commands 1.0
 import Vedder.vesc.configparams 1.0
 
@@ -34,7 +34,7 @@ Item {
     property bool resultReceived: false
 
     property Commands mCommands: VescIf.commands()
-    property ConfigParams mMcConf: VescIf.mcConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
     property ConfigParams mInfoConf: VescIf.infoConfig()
 
     function openDialog() {
@@ -195,12 +195,12 @@ Item {
                             return
                         }
 
-                        mMcConf.updateParamDouble("sl_bemf_coupling_k", coupling)
-                        mMcConf.updateParamDouble("sl_cycle_int_limit", intLim)
+                        mbmsConfig.updateParamDouble("sl_bemf_coupling_k", coupling)
+                        mbmsConfig.updateParamDouble("sl_cycle_int_limit", intLim)
 
                         if (hallRes == 0) {
                             for(var i = 0;i < 7;i++) {
-                                mMcConf.updateParamInt("hall_table_" + i, hallTable[i])
+                                mbmsConfig.updateParamInt("hall_table_" + i, hallTable[i])
                             }
                         }
 

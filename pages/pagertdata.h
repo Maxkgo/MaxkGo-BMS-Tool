@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,12 +51,17 @@ private slots:
     void timerSlot();
     void valuesReceived(BMS_VALUES values);
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
+    void auxReceived(int auxCount, QVector<double> auxVoltageArray);
+    void expTempReceived(int expTempCount, QVector<double> expTempVoltageArray);
 
     void on_zoomHButton_toggled(bool checked);
     void on_zoomVButton_toggled(bool checked);
     void on_rescaleButton_clicked();
     void on_tempShowBMSBox_toggled(bool checked);
     void on_tempShowBatteryBox_toggled(bool checked);
+    //void on_csvChooseDirButton_clicked();
+    //void on_csvEnableLogBox_clicked(bool checked);
+    //void on_csvHelpButton_clicked();
 
 private:
     Ui::PageRtData *ui;
@@ -64,6 +73,7 @@ private:
     QVector<double> mLCLoadCurrent;
     QVector<double> mHCLoadVoltage;
     QVector<double> mHCLoadCurrent;
+    QVector<double> mChargerVoltage;
     QVector<double> mAuxVoltage;
     QVector<double> mAuxCurrent;
     QVector<double> mCellVHigh;
@@ -71,8 +81,11 @@ private:
     QVector<double> mCellVLow;
     QVector<double> mTempBMSHigh;
     QVector<double> mTempBMSAverage;
+    QVector<double> mTempBMSLow;
     QVector<double> mTempBattHigh;
     QVector<double> mTempBattAverage;
+    QVector<double> mTempBattLow;
+    QVector<double> mHumidity;
     QVector<double> mSeconds;
 
     double mSecondCounter;
@@ -83,6 +96,10 @@ private:
     QCPBarsGroup *group;
     QCPBars *barsNormal;
     QCPBars *barsBalance;
+    QCPBarsGroup *group2;
+    QCPBarsGroup *group3;
+    QCPBars *barsTemperature;
+    QCPBars *ExpBarsTemperature;
 
     void appendDoubleAndTrunc(QVector<double> *vec, double num, int maxSize);
     void updateZoom();

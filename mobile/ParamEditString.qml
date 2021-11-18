@@ -21,8 +21,8 @@ import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
-import Vedder.vesc.configparams 1.0
+import Ennoid.bmsinterface 1.0
+import Ennoid.configparams 1.0
 
 Item {
     id: editor

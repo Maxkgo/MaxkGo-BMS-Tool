@@ -26,7 +26,6 @@ Item {
     property alias connectButton: connectButton
     property alias disconnectButton: disconnectButton
     property alias bleItems: bleItems
-    property alias bleBox: bleBox
     property alias canIdBox: canIdBox
     property alias fwdCanBox: fwdCanBox
 
@@ -34,15 +33,17 @@ Item {
     width: 400
     height: 400
 
+    property alias bleBox: bleBox
+
     ColumnLayout {
         anchors.fill: parent
 
         Image {
             id: image
             Layout.preferredWidth: Math.min(parent.width, parent.height)
-            Layout.preferredHeight: (394 * Layout.preferredWidth) / 1549
+            Layout.preferredHeight: (300 * Layout.preferredWidth) / 1549
             Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-            source: "qrc:/res/logo.png"
+            source: "../res/logo_white.png"
         }
 
         Item {
@@ -126,15 +127,33 @@ Item {
         }
 
         Item {
+            id: element
             // Spacer
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
 
+
+
         Item {
+            scale: 1.2
             // Spacer
             Layout.fillHeight: true
             Layout.fillWidth: true
         }
+
+
+        Item {
+            scale: 1.2
+            // Spacer
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+        }
+
+
     }
 }
+
+
+
+

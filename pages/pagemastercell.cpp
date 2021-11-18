@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -46,7 +50,11 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
 
     if (mDieBieMS) {
         ui->specificationsTab->addRowSeparator(tr("Pack configuration"));
+        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellMonitorICType");
+        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellMonitorICCount");
+        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfParallelModules");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfCellsSeries");
+        ui->specificationsTab->addRowSeparator(tr("SOC - Pack capacity"));
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfCellsParallel");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "batteryCapacity");
         ui->specificationsTab->addRowSeparator(tr("Cell specifications"));
@@ -54,7 +62,7 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardUnderVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardOverVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellLCSoftUnderVoltage");
-        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHCSoftUnderVoltage");
+     //   ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHCSoftUnderVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellSoftOverVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "maxUnderAndOverVoltageErrorCount");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "hysteresisDischarge");
@@ -64,7 +72,8 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceStart");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceDifferenceThreshold");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceUpdateInterval");
-        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "maxSimultaneousDischargingCells");
+        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceAllTime");
+//        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "maxSimultaneousDischargingCells");
 
         ui->throttlingTab->addRowSeparator(tr("Discharge"));
         ui->throttlingTab->addParamRow(mDieBieMS->bmsConfig(), "cellThrottleLowerStart");

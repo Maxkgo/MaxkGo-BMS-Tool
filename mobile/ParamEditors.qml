@@ -21,13 +21,12 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-//import Vedder.vesc.vescinterface 1.0
-import Vedder.vesc.commands 1.0
-import Vedder.vesc.configparams 1.0
+import Ennoid.bmsinterface 1.0
+import Ennoid.commands 1.0
+import Ennoid.configparams 1.0
 
 Item {
-    property ConfigParams mMcConf: VescIf.mcConfig()
-    property ConfigParams mAppConf: VescIf.appConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
 
     function createEditor(parent, name, conf) {
         if (conf.hasParam(name)) {
@@ -55,15 +54,19 @@ Item {
     }
 
     function createEditorMc(parent, name) {
-        return createEditor(parent, name, mMcConf)
+        return createEditor(parent, name, mbmsConfig)
     }
 
-    function createEditorApp(parent, name) {
-        return createEditor(parent, name, mAppConf)
-    }
 
     function createSeparator(parent, text) {
         var component = Qt.createComponent("ParamEditSeparator.qml");
         return component.createObject(parent, {"sepName": text});
+    }
+
+    function createSpacer(parent) {
+        return Qt.createQmlObject(
+                    'import QtQuick 2.7; import QtQuick.Layouts 1.3; Rectangle {Layout.fillHeight: true}',
+                    parent,
+                    "spacer1")
     }
 }

@@ -22,11 +22,11 @@
         <enum>QTabWidget::Triangular</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="cellBarGraphTab">
         <attribute name="title">
-         <string>CellBarGraph</string>
+         <string>Cells Voltage</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
@@ -34,9 +34,29 @@
          </item>
         </layout>
        </widget>
+       <widget class="QWidget" name="auxBarGraphTab">
+        <attribute name="title">
+         <string>Temperatures LTC</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QCustomPlot" name="auxBarGraph" native="true"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="expBarGraphTab">
+        <attribute name="title">
+         <string>Temperatures Expansion</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_18">
+         <item>
+          <widget class="QCustomPlot" name="expBarGraph" native="true"/>
+         </item>
+        </layout>
+       </widget>
        <widget class="QWidget" name="ivLCGraphTab">
         <attribute name="title">
-         <string>LC IVGraph</string>
+         <string>IV Graph</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
@@ -44,19 +64,9 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="ivHCGraphTab">
-        <attribute name="title">
-         <string>HC IVGraph</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
-         <item>
-          <widget class="QCustomPlot" name="ivHCGraph" native="true"/>
-         </item>
-        </layout>
-       </widget>
        <widget class="QWidget" name="cellGraphTab">
         <attribute name="title">
-         <string>CellGraph</string>
+         <string>Cell Graph</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
@@ -66,7 +76,7 @@
        </widget>
        <widget class="QWidget" name="tempGraphTab">
         <attribute name="title">
-         <string>TempGraph</string>
+         <string>Temp Graph</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0">
          <item>

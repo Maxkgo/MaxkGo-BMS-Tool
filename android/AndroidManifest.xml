@@ -1,17 +1,15 @@
 <?xml version="1.0"?>
-<manifest package="vedder.vesctool" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0" android:versionCode="1" android:installLocation="auto">
-    <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="VESC Tool" android:icon="@drawable/icon">
-        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="VESC Tool" android:screenOrientation="unspecified" android:launchMode="singleTop">
+<manifest package="ennoid.bms" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1" android:versionCode="1" android:installLocation="auto">
+    <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="ENNOID" android:icon="@drawable/icon">
+        <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="ENNOID BMS Tool" android:screenOrientation="unspecified" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
             <!-- Application arguments -->
             <!-- meta-data android:name="android.app.arguments" android:value="arg1 arg2 arg3"/ -->
             <!-- Application arguments -->
-
-            <meta-data android:name="android.app.lib_name" android:value="vesc_tool"/>
+            <meta-data android:name="android.app.lib_name" android:value="ENNOID-BMS-Tool"/>
             <meta-data android:name="android.app.qt_sources_resource_id" android:resource="@array/qt_sources"/>
             <meta-data android:name="android.app.repository" android:value="default"/>
             <meta-data android:name="android.app.qt_libs_resource_id" android:resource="@array/qt_libs"/>
@@ -31,12 +29,10 @@
             <meta-data android:value="@string/ministro_needed_msg" android:name="android.app.ministro_needed_msg"/>
             <meta-data android:value="@string/fatal_error_msg" android:name="android.app.fatal_error_msg"/>
             <!--  Messages maps -->
-
             <!-- Splash screen -->
             <!-- meta-data android:name="android.app.splash_screen_drawable" android:resource="@drawable/logo"/ -->
             <!-- meta-data android:name="android.app.splash_screen_sticky" android:value="true"/ -->
             <!-- Splash screen -->
-
             <!-- Background running -->
             <!-- Warning: changing this value to true may cause unexpected crashes if the
                           application still try to draw after
@@ -44,11 +40,9 @@
                           signal is sent! -->
             <meta-data android:name="android.app.background_running" android:value="false"/>
             <!-- Background running -->
-
             <!-- auto screen scale factor -->
             <meta-data android:name="android.app.auto_screen_scale_factor" android:value="false"/>
             <!-- auto screen scale factor -->
-
             <!-- extract android style -->
             <!-- available android:values :
                 * full - useful QWidget & Quick Controls 1 apps
@@ -57,13 +51,11 @@
                 -->
             <meta-data android:name="android.app.extract_android_style" android:value="full"/>
             <!-- extract android style -->
-    </activity>
-
-    <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
-
+        </activity>
+        <!-- For adding service(s) please check: https://wiki.qt.io/AndroidServices -->
     </application>
 
-    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23"/>
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29"/>
     <supports-screens android:largeScreens="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true"/>
 
     <!-- The following comment will be replaced upon deployment with default permissions based on the dependencies of the application.

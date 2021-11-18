@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,10 +33,16 @@
 #include <QDebug>
 #include <QNetworkReply>
 #include <QMessageBox>
+#include <QFile>
+#include <QFileInfo>
+#include <QtGlobal>
+#include <QNetworkInterface>
+#include <QDirIterator>
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
 #include <QAndroidJniObject>
+#include <QAndroidJniEnvironment>
 #endif
 
 Utility::Utility(QObject *parent) : QObject(parent)
@@ -50,16 +60,16 @@ float Utility::throttle_curve(float val, float curve_acc, float curve_brake, int
     float ret = 0.0;
     float val_a = fabsf(val);
 
-    if (val < -1.0) {
+    if (val < -1.0f) {
         val = -1.0;
     }
 
-    if (val > 1.0) {
+    if (val > 1.0f) {
         val = 1.0;
     }
 
     float curve;
-    if (val >= 0.0) {
+    if (val >= 0.0f) {
         curve = curve_acc;
     } else {
         curve = curve_brake;
@@ -68,41 +78,41 @@ float Utility::throttle_curve(float val, float curve_acc, float curve_brake, int
     // See
     // http://math.stackexchange.com/questions/297768/how-would-i-create-a-exponential-ramp-function-from-0-0-to-1-1-with-a-single-val
     if (mode == 0) { // Power
-        if (curve >= 0.0) {
-            ret = 1.0 - powf(1.0 - val_a, 1.0 + curve);
+        if (curve >= 0.0f) {
+            ret = 1.0f - powf(1.0f - val_a, 1.0f + curve);
         } else {
-            ret = powf(val_a, 1.0 - curve);
+            ret = powf(val_a, 1.0f - curve);
         }
     } else if (mode == 1) { // Exponential
-        if (fabsf(curve) < 1e-10) {
+        if (fabsf(curve) < 1e-10f) {
             ret = val_a;
         } else {
-            if (curve >= 0.0) {
-                ret = 1.0 - ((expf(curve * (1.0 - val_a)) - 1.0) / (expf(curve) - 1.0));
+            if (curve >= 0.0f) {
+                ret = 1.0f - ((expf(curve * (1.0f - val_a)) - 1.0f) / (expf(curve) - 1.0f));
             } else {
-                ret = (expf(-curve * val_a) - 1.0) / (expf(-curve) - 1.0);
+                ret = (expf(-curve * val_a) - 1.0f) / (expf(-curve) - 1.0f);
             }
         }
     } else if (mode == 2) { // Polynomial
-        if (curve >= 0.0) {
-            ret = 1.0 - ((1.0 - val_a) / (1.0 + curve * val_a));
+        if (curve >= 0.0f) {
+            ret = 1.0f - ((1.0f - val_a) / (1.0f + curve * val_a));
         } else {
-            ret = val_a / (1.0 - curve * (1.0 - val_a));
+            ret = val_a / (1.0f - curve * (1.0f - val_a));
         }
     } else { // Linear
         ret = val_a;
     }
 
-    if (val < 0.0) {
+    if (val < 0.0f) {
         ret = -ret;
     }
 
     return ret;
 }
 
-bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *parent)
+bool Utility::autoconnectBlockingWithProgress(BMSInterface *dieBieMS, QWidget *parent)
 {
-    if (!vesc) {
+    if (!dieBieMS) {
         return false;
     }
 
@@ -110,10 +120,13 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
     dialog.setWindowModality(Qt::WindowModal);
     dialog.show();
 
-    bool res = vesc->autoconnect();
+    bool res = dieBieMS->autoconnect();
 
     if (!res) {
-        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the DieBieMS is powered."),false);
+        dieBieMS->emitMessageDialog(QObject::tr("Autoconnect"),
+                                QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in"
+                                            " and that the ENNOID-BMS is powered."),
+                                false);
     }
 
     return res;
@@ -122,7 +135,7 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
 void Utility::checkVersion(BMSInterface *dieBieMS)
 {
     QString version = QString::number(DT_VERSION);
-    QUrl url("https://vesc-project.com/vesctool-version.html");
+    QUrl url("https://raw.githubusercontent.com/EnnoidMe/ENNOID-BMS-Tool/ENNOID/res/ennoidbmstool-version.html");
     QNetworkAccessManager manager;
     QNetworkRequest request(url);
     QNetworkReply *reply = manager.get(request);
@@ -132,15 +145,16 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
     QString res = QString::fromUtf8(reply->readAll());
 
-    if (res.startsWith("vesctoolversion")) {
-        res.remove(0, 15);
-        res.remove(res.indexOf("vesctoolversion"), res.size());
+    if (res.startsWith("ennoidbmstoolversion")) {
+        res.remove(0, 20);
+        res.remove(res.indexOf("ennoidbmstoolversion"), res.size());
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
-                //dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
+                dieBieMS->emitStatusMessage("A new version of MaxkGo-BMS Tool is available", true);
             } else {
-                //qDebug() << "A new version of ENNOID-BMS Tool is available. Go to DeiBie.nl to download it and get all the latest features.";
+                qDebug() << "A new version of MaxkGo-BMS Tool is available. Go to www.MaxkGo.me to download it"
+                            "and get all the latest features.";
             }
         }
     } else {
@@ -170,12 +184,28 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>ENNOID-BMS Tool %1</b><br>"
+    return tr("<b>MaxkGo-BMS Tool V%1</b><br>"
+              "Based on: VESC-Tool, DieBieMS-Tool and ENNOID-BMS-Tool<br>"
+              "&copy; Maxkgo<br>"
+              "<a href=\"https://maxkgo.com/\">https://maxkgo.com/</a><br>"
+              "<br>"
+               "<b>Ennoid BMS-Tool </b><br>"
+              "&copy; Kevin Dionee<br>"
+              "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"
+              "Based on: VESC-Tool and DieBieMS-Tool<br>"
+              "<br>"
+               "<b>DieBieMS Tool </b><br>"
               "&copy; Danny Bokma 2018<br>"
               "<a href=\"mailto:bms@diebie.nl\">bms@diebie.nl</a><br>"
               "<a href=\"https://diebie.nl/\">https://diebie.nl/</a><br>"
-              "Based on: ").
-            arg(QString::number(DT_VERSION));
+              "Based on: VESC-Tool<br>"
+              "<br>"
+              "<b>VESC Tool </b><br>"
+             "&copy; Benjamin Vedder 2018<br>"
+             "<a href=\"mailto:benjamin@vedder.se\">benjamin@vedder.se</a><br>"
+             "<a href=\"https://vesc-project.com/\">https://vesc-project.com/</a><br>"
+             "<br>").
+                arg(QString::number(DT_VERSION, 'f', 1));
 }
 
 QString Utility::uuid2Str(QByteArray uuid, bool space)
@@ -208,3 +238,25 @@ bool Utility::requestFilePermission()
     return true;
 #endif
 }
+
+bool Utility::waitSignal(QObject *sender, QString signal, int timeoutMs)
+{
+    QEventLoop loop;
+    QTimer timeoutTimer;
+    timeoutTimer.setSingleShot(true);
+    timeoutTimer.start(timeoutMs);
+    auto conn1 = QObject::connect(sender, signal.toLocal8Bit().data(), &loop, SLOT(quit()));
+    auto conn2 = QObject::connect(&timeoutTimer, SIGNAL(timeout()), &loop, SLOT(quit()));
+    loop.exec();
+
+    QObject::disconnect(conn1);
+    QObject::disconnect(conn2);
+
+    return timeoutTimer.isActive();
+}
+
+bool Utility::almostEqual(double A, double B, double eps)
+{
+    return fabs(A - B) <= eps * fmax(1.0f, fmax(fabs(A), fabs(B)));
+}
+

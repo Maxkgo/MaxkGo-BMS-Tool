@@ -25,7 +25,7 @@ SOFTWARE.
 
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as OldControls
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.2
 import Qt.labs.folderlistmodel 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.0
@@ -77,7 +77,7 @@ Item {
         anchors.left: parent.left
         anchors.top: parent.top
         height: toolbarHeight
-        color: "#d9d9d9"
+        color: "#3c3c3c"
         Button {
             id: button
             text: ".."
@@ -95,6 +95,7 @@ Item {
         }
         Text {
             id: filePath
+            color: "white"
             text: folderListModel.folder.toString().replace("file:///", "►").replace("/", "►").replace("/", "►").replace("/", "►").replace("/", "►")
             renderType: Text.NativeRendering
             elide: Text.ElideMiddle
@@ -132,6 +133,7 @@ Item {
             headerDelegate:headerDelegate
             rowDelegate: Rectangle {
                 height: rowHeight
+                color: "#6f6f6f"
             }
 
             OldControls.TableViewColumn {
@@ -146,6 +148,7 @@ Item {
                 Item {
                     height: rowHeight
                     Rectangle {
+                        color: "#6f6f6f"
                         anchors.fill: parent
                         MouseArea {
                             anchors.fill: parent
@@ -155,6 +158,7 @@ Item {
                         }
                         Text {
                             id: fileNameText
+                            color: "white"
                             height: width
                             anchors.left: image.right
                             anchors.top: parent.top
@@ -180,15 +184,14 @@ Item {
                 id: headerDelegate
                 Rectangle {
                     height: rowHeight
-                    color: "#a6aaa2"
-                    border.color: "#a6aaa2"
+                    color: "#535353"
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         height: headerTextSize
                         font.bold: true
                         elide: Text.ElideMiddle
-                        color: "#000000"
+                        color: "white"
                         text: styleData.value !== undefined ? styleData.value : ""
                     }
                 }
@@ -198,6 +201,9 @@ Item {
         Button {
             Layout.fillWidth: true
             text: "Cancel"
+            Layout.margins: 10
+            Layout.topMargin: -5
+            Layout.bottomMargin: 0
 
             onClicked: {
                 picker.enabled = false

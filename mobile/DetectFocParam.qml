@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
+import Vedder.vesc.bmsinterface 1.0
 import Vedder.vesc.commands 1.0
 import Vedder.vesc.configparams 1.0
 
@@ -35,7 +35,7 @@ Item {
     property real gain: 0.0
 
     property Commands mCommands: VescIf.commands()
-    property ConfigParams mMcConf: VescIf.mcConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
     property ConfigParams mInfoConf: VescIf.infoConfig()
 
     function openDialog() {
@@ -263,12 +263,12 @@ Item {
                         calcKpKi()
                         calcGain()
 
-                        mMcConf.updateParamDouble("foc_motor_r", res)
-                        mMcConf.updateParamDouble("foc_motor_l", ind)
-                        mMcConf.updateParamDouble("foc_motor_flux_linkage", lambda)
-                        mMcConf.updateParamDouble("foc_current_kp", kp)
-                        mMcConf.updateParamDouble("foc_current_ki", ki)
-                        mMcConf.updateParamDouble("foc_observer_gain", gain * 1e6)
+                        mbmsConfig.updateParamDouble("foc_motor_r", res)
+                        mbmsConfig.updateParamDouble("foc_motor_l", ind)
+                        mbmsConfig.updateParamDouble("foc_motor_flux_linkage", lambda)
+                        mbmsConfig.updateParamDouble("foc_current_kp", kp)
+                        mbmsConfig.updateParamDouble("foc_current_ki", ki)
+                        mbmsConfig.updateParamDouble("foc_observer_gain", gain * 1e6)
 
                         dialog.close()
                     }

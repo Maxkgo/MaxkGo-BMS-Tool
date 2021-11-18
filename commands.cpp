@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -49,6 +53,9 @@ Commands::Commands(QObject *parent) : QObject(parent)
     mTimeoutBMSconf = 0;
     mTimeoutValues = 0;
     mTimeoutCells = 0;
+    mTimeoutAux = 0;
+    mTimeoutExp = 0;
+    mTimeoutPingCan = 0;
 
     connect(mTimer, SIGNAL(timeout()), this, SLOT(timerSlot()));
 }
@@ -123,7 +130,7 @@ void Commands::processPacket(QByteArray data)
         firmwareUploadUpdate(!vb.at(0));
         break;
 
-    case COMM_GET_VALUES: {
+    case COMM_EBMS_GET_VALUES: {
         mTimeoutValues = 0;
         BMS_VALUES values;
 
@@ -137,25 +144,26 @@ void Commands::processPacket(QByteArray data)
         values.cVLow            = vb.vbPopFrontDouble32(1e3);
         values.cVMisMatch       = vb.vbPopFrontDouble32(1e3);
 
-        values.loadLCVoltage    = vb.vbPopFrontDouble16(1e2);
-        values.loadLCCurrent    = vb.vbPopFrontDouble16(1e2);
-        values.loadHCVoltage    = vb.vbPopFrontDouble16(1e2);
-        values.loadHCCurrent    = vb.vbPopFrontDouble16(1e2);
-        values.auxVoltage       = vb.vbPopFrontDouble16(1e2);
-        values.auxCurrent       = vb.vbPopFrontDouble16(1e2);
+        values.loadLCVoltage    = vb.vbPopFrontDouble16(1e1);
+        values.loadLCCurrent    = vb.vbPopFrontDouble16(1e1);
+
+        values.chargerVoltage    = vb.vbPopFrontDouble16(1e1);
 
         values.tempBattHigh     = vb.vbPopFrontDouble16(1e1);
         values.tempBattAverage  = vb.vbPopFrontDouble16(1e1);
+        values.tempBattLow      = vb.vbPopFrontDouble16(1e1);
         values.tempBMSHigh      = vb.vbPopFrontDouble16(1e1);
         values.tempBMSAverage   = vb.vbPopFrontDouble16(1e1);
+        values.tempBMSLow     = vb.vbPopFrontDouble16(1e1);
+        values.humidity   = vb.vbPopFrontDouble16(1e1);
 
         values.opState          = opStateToStr((OperationalStateTypedef)vb.vbPopFrontUint8());
         values.balanceActive    = vb.vbPopFrontUint8();
-
+        values.faultState       = faultStateToStr((bms_fault_code)vb.vbPopFrontUint8());
         emit valuesReceived(values);
     } break;
 
-    case COMM_GET_BMS_CELLS:{
+    case COMM_EBMS_GET_CELLS:{
         mTimeoutCells = 0;
         int mCellAmount;
         QVector<double> mCellVoltages;
@@ -171,6 +179,38 @@ void Commands::processPacket(QByteArray data)
 
        } break;
 
+    case COMM_EBMS_GET_AUX:{
+        mTimeoutAux = 0;
+        int mAuxAmount;
+        QVector<double> mAuxVoltages;
+        mAuxVoltages.clear();
+
+        mAuxAmount = vb.vbPopFrontUint8();
+
+        for(int auxValuePointer = 0; auxValuePointer < mAuxAmount; auxValuePointer++){
+            mAuxVoltages.append(vb.vbPopFrontDouble16(1e1));
+        }
+
+        emit auxReceived(mAuxAmount,mAuxVoltages);
+
+       } break;
+
+    case COMM_EBMS_GET_EXP_TEMP:{
+        mTimeoutExp = 0;
+        int mExpTempAmount;
+        QVector<double> mExpTempVoltages;
+        mExpTempVoltages.clear();
+
+        mExpTempAmount = vb.vbPopFrontUint8();
+
+        for(int expTempValuePointer = 0; expTempValuePointer < mExpTempAmount; expTempValuePointer++){
+            mExpTempVoltages.append(vb.vbPopFrontDouble16(1e1));
+        }
+
+        emit expTempReceived(mExpTempAmount,mExpTempVoltages);
+
+       } break;
+
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
         break;
@@ -179,8 +219,8 @@ void Commands::processPacket(QByteArray data)
         emit rotorPosReceived(vb.vbPopFrontDouble32(1e5));
         break;
 
-    case COMM_GET_MCCONF:
-    case COMM_GET_MCCONF_DEFAULT:
+    case COMM_EBMS_GET_MCCONF:
+    case COMM_EBMS_GET_MCCONF_DEFAULT:
         mTimeoutBMSconf = 0;
         if (mbmsConfig) {
             mbmsConfig->deSerialize(vb);
@@ -193,15 +233,24 @@ void Commands::processPacket(QByteArray data)
         }
         break;
 
-    case COMM_SET_MCCONF:
+    case COMM_EBMS_SET_MCCONF:
         emit ackReceived("BMS Write OK");
         break;
 
-    case COMM_STORE_BMS_CONF:
+    case COMM_EBMS_STORE_CONF:
         if (mbmsConfig) {
             mbmsConfig->storingDone();
         }
         break;
+
+    case COMM_PING_CAN: {
+        mTimeoutPingCan = 0;
+        QVector<int> devs;
+        while(vb.size() > 0) {
+            devs.append(vb.vbPopFrontUint8());
+        }
+        emit pingCanRx(devs, false);
+    } break;
 
     default:
         break;
@@ -230,7 +279,7 @@ void Commands::getValues()
     mTimeoutValues = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_VALUES);
+    vb.vbAppendInt8(COMM_EBMS_GET_VALUES);
     emitData(vb);
 }
 
@@ -243,10 +292,35 @@ void Commands::getCells()
     mTimeoutCells = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_BMS_CELLS);
+    vb.vbAppendInt8(COMM_EBMS_GET_CELLS);
     emitData(vb);
 }
 
+void Commands::getAux()
+{
+    if (mTimeoutAux > 0) {
+        return;
+    }
+
+    mTimeoutAux = mTimeoutCount;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_EBMS_GET_AUX);
+    emitData(vb);
+}
+
+void Commands::getExpansionTemp()
+{
+    if (mTimeoutExp > 0) {
+        return;
+    }
+
+    mTimeoutExp = mTimeoutCount;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_EBMS_GET_EXP_TEMP);
+    emitData(vb);
+}
 void Commands::sendTerminalCmd(QString cmd)
 {
     VByteArray vb;
@@ -284,7 +358,7 @@ void Commands::getBMSconf()
 
     mCheckNextbmsConfig = false;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF);
     emitData(vb);
 }
 
@@ -298,7 +372,7 @@ void Commands::getBMSconfDefault()
 
     mCheckNextbmsConfig = false;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF_DEFAULT);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF_DEFAULT);
     emitData(vb);
 }
 
@@ -307,7 +381,7 @@ void Commands::setBMSconf(bool check)
     if (mbmsConfig) {
         mbmsConfigLast = *mbmsConfig;
         VByteArray vb;
-        vb.vbAppendInt8(COMM_SET_MCCONF);
+        vb.vbAppendInt8(COMM_EBMS_SET_MCCONF);
         mbmsConfig->serialize(vb);
         emitData(vb);
 
@@ -353,6 +427,8 @@ void Commands::timerSlot()
     if (mTimeoutBMSconf > 0) mTimeoutBMSconf--;
     if (mTimeoutValues > 0) mTimeoutValues--;
     if (mTimeoutCells > 0) mTimeoutCells--;
+    if (mTimeoutAux > 0) mTimeoutAux--;
+    if (mTimeoutExp > 0) mTimeoutExp--;
 }
 
 void Commands::emitData(QByteArray data)
@@ -492,6 +568,37 @@ QString Commands::opStateToStr(OperationalStateTypedef fault)
     }
 }
 
+QString Commands::faultStateToStr(bms_fault_code fault)
+{
+    switch (fault) {
+    case FAULT_CODE_NONE: return "System OK";
+    case FAULT_CODE_PACK_OVER_VOLTAGE: return "Pack overvoltage";
+    case FAULT_CODE_PACK_UNDER_VOLTAGE: return "Pack undervoltage";
+    case FAULT_CODE_LOAD_OVER_VOLTAGE: return "Load overvoltage";
+    case FAULT_CODE_LOAD_UNDER_VOLTAGE: return "Load undervoltage";
+    case FAULT_CODE_CHARGER_OVER_VOLTAGE: return "Charger overvoltage";
+    case FAULT_CODE_CHARGER_UNDER_VOLTAGE: return "Charger undervoltgae";
+    case FAULT_CODE_CELL_HARD_OVER_VOLTAGE: return "Cell hard overvoltage";
+    case FAULT_CODE_CELL_HARD_UNDER_VOLTAGE: return "Cell hard undervoltage";
+    case FAULT_CODE_CELL_SOFT_OVER_VOLTAGE: return "Cell soft overvoltage";
+    case FAULT_CODE_CELL_SOFT_UNDER_VOLTAGE: return "Cell soft undervoltage";
+    case FAULT_CODE_MAX_UVP_OVP_ERRORS: return "MAX OVP/UVP errors";
+    case FAULT_CODE_MAX_UVT_OVT_ERRORS: return "MAX OVT/UVT errors";
+    case FAULT_CODE_OVER_CURRENT: return "Over current";
+    case FAULT_CODE_OVER_TEMP_BMS: return "Over temp BMS";
+    case FAULT_CODE_UNDER_TEMP_BMS: return "Under temp BMS";
+    case FAULT_CODE_DISCHARGE_OVER_TEMP_CELLS: return "Discharge over temp cell";
+    case FAULT_CODE_DISCHARGE_UNDER_TEMP_CELLS: return "Discharge under temp cell";
+    case FAULT_CODE_CHARGE_OVER_TEMP_CELLS: return "Charge over temp cell";
+    case FAULT_CODE_CHARGE_UNDER_TEMP_CELLS: return "Charge under temp cell";
+    case FAULT_CODE_PRECHARGE_TIMEOUT: return "Precharge timeout";
+    case FAULT_CODE_DISCHARGE_RETRY: return "Discharge retry";
+    case FAULT_CODE_CHARGE_RETRY: return "Charge retry";
+    case FAULT_CODE_CHARGER_DISCONNECT: return "Charge retry";
+    default: return "Unknown fault";
+    }
+}
+
 void Commands::setbmsConfig(ConfigParams *bmsConfig)
 {
     mbmsConfig = bmsConfig;
@@ -549,13 +656,89 @@ void Commands::checkbmsConfig()
 {
     mCheckNextbmsConfig = true;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF);
     emitData(vb);
 }
 
 void Commands::storeBMSConfig()
 {
     VByteArray vb;
-    vb.vbAppendInt8(COMM_STORE_BMS_CONF);
+    vb.vbAppendInt8(COMM_EBMS_STORE_CONF);
+    emitData(vb);
+}
+
+void Commands::emitEmptyValues()
+{
+    BMS_VALUES values;
+    values.packVoltage = 0.0;
+    values.packCurrent = 0.0;
+    values.soC = 0.0;
+    values.cVHigh = 0.0;
+    values.cVAverage = 0.0;
+    values.cVLow = 0.0;
+    values.cVMisMatch = 0.0;
+    values.loadLCVoltage = 0.0;
+    values.loadLCCurrent = 0.0;
+    values.loadHCVoltage = 0.0;
+    values.loadHCCurrent = 0.0;
+    values.chargerVoltage = 0.0;
+    values.auxVoltage = 0.0;
+    values.auxCurrent = 0.0;
+    values.tempBattHigh = 0.0;
+    values.tempBattAverage = 0.0;
+    values.tempBattLow = 0.0;
+    values.tempBMSHigh = 0.0;
+    values.tempBMSAverage = 0.0;
+    values.tempBMSLow = 0.0;
+    values.humidity = 0.0;
+    values.opState = "Unknown";
+    values.balanceActive = 0.0;
+    values.faultState = "Unknown";
+
+
+    emit valuesReceived(values);
+}
+
+void Commands::emitEmptySetupValues()
+{
+    BMS_VALUES values;
+    values.packVoltage = 0.0;
+    values.packCurrent = 0.0;
+    values.soC = 0.0;
+    values.cVHigh = 0.0;
+    values.cVAverage = 0.0;
+    values.cVLow = 0.0;
+    values.cVMisMatch = 0.0;
+    values.loadLCVoltage = 0.0;
+    values.loadLCCurrent = 0.0;
+    values.loadHCVoltage = 0.0;
+    values.loadHCCurrent = 0.0;
+    values.chargerVoltage = 0.0;
+    values.auxVoltage = 0.0;
+    values.auxCurrent = 0.0;
+    values.tempBattHigh = 0.0;
+    values.tempBattAverage = 0.0;
+    values.tempBattLow = 0.0;
+    values.tempBMSHigh = 0.0;
+    values.tempBMSAverage = 0.0;
+    values.tempBMSLow = 0.0;
+    values.opState = OP_STATE_INIT;
+    values.balanceActive = 1;
+    values.faultState = FAULT_CODE_NONE;
+
+    emit valuesSetupReceived(values);
+}
+
+
+void Commands::pingCan()
+{
+    if (mTimeoutPingCan > 0) {
+        return;
+    }
+
+    mTimeoutPingCan = 500;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_PING_CAN);
     emitData(vb);
 }

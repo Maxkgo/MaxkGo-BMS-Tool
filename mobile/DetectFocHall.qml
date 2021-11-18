@@ -21,7 +21,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 
-import Vedder.vesc.vescinterface 1.0
+import Vedder.vesc.bmsinterface 1.0
 import Vedder.vesc.commands 1.0
 import Vedder.vesc.configparams 1.0
 
@@ -30,7 +30,7 @@ Item {
     property var table: []
 
     property Commands mCommands: VescIf.commands()
-    property ConfigParams mMcConf: VescIf.mcConfig()
+    property ConfigParams mbmsConfig: VescIf.bmsConfig()
     property ConfigParams mInfoConf: VescIf.infoConfig()
 
     function openDialog() {
@@ -146,7 +146,7 @@ Item {
                         }
 
                         for(var i = 0;i < 7;i++) {
-                            mMcConf.updateParamInt("foc_hall_table_" + i, table[i])
+                            mbmsConfig.updateParamInt("foc_hall_table_" + i, table[i])
                         }
 
                         VescIf.emitStatusMessage("Hall Sensor Parameters Applied", true)

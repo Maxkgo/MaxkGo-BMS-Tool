@@ -5,20 +5,24 @@
 #-------------------------------------------------
 INCLUDEPATH += $$PWD
 # Version
-DT_VERSION = 0.30
-
+DT_VERSION = 1.4
 DEFINES += DT_VERSION=$$DT_VERSION
 
-# Serial port available
-DEFINES += HAS_SERIALPORT
+!android: {
+    # Serial port available
+    DEFINES += HAS_SERIALPORT
+}
+
+CONFIG += c++11
+QMAKE_CXXFLAGS += -Wno-deprecated-copy
 
 # Options
-CONFIG += build_original
-
-# Build mobile GUI
+#Build mobile GUI
 #CONFIG += build_mobile
 
-#CONFIG += qtquickcompiler
+
+# Bluetooth available
+DEFINES += HAS_BLUETOOTH
 
 QT       += core gui
 QT       += widgets
@@ -34,8 +38,8 @@ contains(DEFINES, HAS_SERIALPORT) {
 
 android: QT += androidextras
 
-android: TARGET = DieBieMSTool
-!android: TARGET = DieBieMSToolV$$DT_VERSION
+android: TARGET = ENNOID-BMS-Tool
+!android: TARGET = ENNOID-BMS-ToolV$$DT_VERSION
 
 TEMPLATE = app
 
@@ -105,9 +109,7 @@ include(mobile/mobile.pri)
 
 RESOURCES += res.qrc
 
-build_original {
-    DEFINES += VER_ORIGINAL
-}
+
 
 DISTFILES += \
     android/AndroidManifest.xml \
@@ -118,3 +120,6 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+ANDROID_ABIS = x86
+

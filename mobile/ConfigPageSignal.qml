@@ -81,6 +81,7 @@ Item {
         case "Buzzer Control":
                 createEditorMc("buzzerSignalSource")
                 createEditorMc("buzzerPersistent")
+                createEditorMc("buzzerThreshold")
                 break;
         default:
             break;

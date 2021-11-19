@@ -475,7 +475,7 @@ p, li { white-space: pre-wrap; }
             <stepInt>1</stepInt>
             <valInt>20</valInt>
             <suffix></suffix>
-            <vTx>2</vTx>
+            <vTx>1</vTx>
         </buzzerThreshold>
 
         <shuntLCFactor>
@@ -2533,7 +2533,6 @@ p, li { white-space: pre-wrap; }
         <ser>packCurrentDataSource</ser>
         <ser>buzzerSignalSource</ser>
         <ser>buzzerPersistent</ser>
-        <ser>buzzerThreshold</ser>
         <ser>shuntLCFactor</ser>
         <ser>voltageLCFactor</ser>
         <ser>voltageLCOffset</ser>
@@ -2609,5 +2608,6 @@ p, li { white-space: pre-wrap; }
         <ser>chargeEnableState</ser>
         <ser>powerDownDelay</ser>
         <ser>humidityICType</ser>
+        <ser>buzzerThreshold</ser>
     </SerOrder>
 </ConfigParams>

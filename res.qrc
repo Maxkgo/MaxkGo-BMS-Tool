@@ -125,7 +125,5 @@
         <file>res/logo_white.png</file>
         <file>res/bootloaders/generic.bin</file>
         <file>res/firmwares/MKBMS-LV-MINI/MKBMS-LV-MINI.bin</file>
-        <file>res/firmwares/MKBMS-SS-24S-MINI/MKBMS-SS-24S-MINI.bin</file>
-        <file>res/firmwares/MKBMS-SS-MINI/MKBMS-SS-MINI.bin</file>
     </qresource>
 </RCC>

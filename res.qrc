@@ -130,5 +130,6 @@
         <file>res/firmwares/ENNOID-SS/ENNOID-BMS.bin</file>
         <file>res/firmwares/ENNOID-SS-24/ENNOID-BMS.bin</file>
         <file>res/firmwares/ENNOID-SS-LITE/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-XLITE/ENNOID-BMS.bin</file>
     </qresource>
 </RCC>

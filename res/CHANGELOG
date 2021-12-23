@@ -1,3 +1,8 @@
+=== FW 5.02 ===
+* VESC BMS CAN emit status protocol initial implementation
+* VESC tool USB initial support for main parameters configuration
+* BMS application option for electric vehicle or energy storage
+
 === FW 1.4 ===
 * CAN_PACKET_ID & COMM_PACKET_ID are now inline with latest VESC-BMS commands
 

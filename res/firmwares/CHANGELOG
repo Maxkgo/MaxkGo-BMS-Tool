@@ -1,10 +1,14 @@
-For uploading new firmware:
-- Check the "Show non-default firmwares" checkbox
+For uploading new firmware with bootloader already uploaded:
 - Select the hardware version & associated firmware
 - Click on the update firmware icon
 - Wait until the upload progress bar is complete
 - The BMS will restart once the upload is completed
 - The firmware update process is now completed
+
+=== FW 5.02 ===
+* VESC BMS CAN emit status protocol initial implementation
+* VESC tool USB initial support for main parameters configuration
+* BMS application option for electric vehicle or energy storage
 
 === FW 1.4 ===
 * CAN_PACKET_ID & COMM_PACKET_ID are now inline with latest VESC-BMS commands

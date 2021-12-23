@@ -58,6 +58,8 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->powerStateTab->addRowSeparator(tr("Jump to"));
         ui->powerStateTab->addParamRow(mDieBieMS->bmsConfig(), "extEnableState");
         ui->powerStateTab->addParamRow(mDieBieMS->bmsConfig(), "chargeEnableState");
+        ui->powerStateTab->addRowSeparator(tr("BMS use"));
+        ui->powerStateTab->addParamRow(mDieBieMS->bmsConfig(), "BMSApplication");
 
         ui->masterLimitsTab->addRowSeparator(tr("Current"));
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "maxAllowedCurrent");

@@ -482,7 +482,7 @@ bool BMSInterface::connectSerial(QString port, int baudrate)
     (void)baudrate;
     emit messageDialog(tr("Connect serial"),
                        tr("Serial port support is not enabled in this build "
-                          "of MaxkGo-BMS Tool."),
+                          "of ENNOID-BMS Tool."),
                        false, false);
     return false;
 #endif
@@ -503,7 +503,7 @@ QList<VSerialInfo_t> BMSInterface::listSerialPorts()
 
         if(port.manufacturer().startsWith("Silicon")) {
             //info.name.insert(0, "ENNOID-BMS - ");
-            info.name.append(" - MaxkGo-BMS");
+            info.name.append(" - ENNOID-BMS");
             info.isVesc = true;
             index = 0;
         } else {
@@ -772,7 +772,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
 
     if (fwPairs.isEmpty()) {
         emit messageDialog(tr("Not Supported Firmwares"),
-                           tr("This version of MaxkGo-BMS Tool does not seem to have any supported "
+                           tr("This version of ENNOID-BMS Tool does not seem to have any supported "
                               "firmwares. Something is probably wrong with the BMS configuration "
                               "file."),
                            false, false);
@@ -798,7 +798,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(true);
         if (!wasReceived) {
             emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has newer firmware than this version of the"
-                                                " MaxkGo-BMS Tool supports. It is recommended that you update the ENNOID-BMS"
+                                                " ENNOID-BMS Tool supports. It is recommended that you update the ENNOID-BMS"
                                                 " Tool to the latest version. Alternatively, the firmware on"
                                                 " the connected ENNOID-BMS can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"
@@ -833,7 +833,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         }
 
         QString fwStr;
-        fwStr.sprintf("MaxkGo-BMS Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("ENNOID-BMS Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }

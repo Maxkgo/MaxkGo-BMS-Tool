@@ -119,7 +119,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    mPageDebugPrint->printConsole("MaxkGo-BMS Tool " + mVersion + " started<br>");
+    mPageDebugPrint->printConsole("ENNOID-BMS Tool " + mVersion + " started<br>");
 }
 
 MainWindow::~MainWindow()
@@ -425,7 +425,7 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, "MaxkGo-BMS Tool", Utility::aboutText());
+    QMessageBox::about(this, "ENNOID-BMS Tool", Utility::aboutText());
 }
 
 void MainWindow::on_actionLibrariesUsed_triggered()
@@ -819,7 +819,7 @@ void MainWindow::on_actionWarrantyStatement_triggered()
 
 void MainWindow::on_actionDieBieMSToolChangelog_triggered()
 {
-    HelpDialog::showHelp(this, "MaxkGo-BMS Tool Changelog", Utility::vescToolChangeLog());
+    HelpDialog::showHelp(this, "ENNOID-BMS Tool Changelog", Utility::vescToolChangeLog());
 }
 
 void MainWindow::on_actionFirmwareChangelog_triggered()

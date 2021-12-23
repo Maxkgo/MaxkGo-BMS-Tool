@@ -36,7 +36,7 @@ ApplicationWindow {
     visible: true
     width: 500
     height: 850
-    title: qsTr("MaxkGo-BMS Tool")
+    title: qsTr("ENNOID-BMS Tool")
 
     Component.onCompleted: {
        // Utility.checkVersion(VescIf)

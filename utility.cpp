@@ -151,9 +151,9 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
-                dieBieMS->emitStatusMessage("A new version of MaxkGo-BMS Tool is available", true);
+                dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
             } else {
-                qDebug() << "A new version of MaxkGo-BMS Tool is available. Go to www.MaxkGo.me to download it"
+                qDebug() << "A new version of ENNOID-BMS Tool is available. Go to www.ennoid.me to download it"
                             "and get all the latest features.";
             }
         }
@@ -184,21 +184,17 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>MaxkGo-BMS Tool V%1</b><br>"
-              "Based on: VESC-Tool, DieBieMS-Tool and ENNOID-BMS-Tool<br>"
-              "&copy; Maxkgo<br>"
-              "<a href=\"https://maxkgo.com/\">https://maxkgo.com/</a><br>"
-              "<br>"
-               "<b>Ennoid BMS-Tool </b><br>"
-              "&copy; Kevin Dionee<br>"
+    return tr("<b>ENNOID-BMS Tool V%1</b><br>"
+              "&copy; Kevin Dionne 2019<br>"
+              "<a href=\"mailto:kevin.dionne@ennoid.me\">kevin.dionne@ennoid.me</a><br>"
               "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"
-              "Based on: VESC-Tool and DieBieMS-Tool<br>"
+              "Based on: DieBieMS-tool<br>"
               "<br>"
                "<b>DieBieMS Tool </b><br>"
               "&copy; Danny Bokma 2018<br>"
               "<a href=\"mailto:bms@diebie.nl\">bms@diebie.nl</a><br>"
               "<a href=\"https://diebie.nl/\">https://diebie.nl/</a><br>"
-              "Based on: VESC-Tool<br>"
+              "Based on: VESC-tool<br>"
               "<br>"
               "<b>VESC Tool </b><br>"
              "&copy; Benjamin Vedder 2018<br>"

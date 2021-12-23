@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MaxkGo-BMS Tool</string>
+   <string>ENNOID-BMS Tool</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="res.qrc">
+   <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
     <normaloff>:/res/icons/Car Battery-96.png</normaloff>:/res/icons/Car Battery-96.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -44,7 +44,7 @@
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="res.qrc">:/res/logo.png</pixmap>
+           <pixmap resource="../../../Downloads/vesc_tool-master/res_bronze.qrc">:/res/logo.png</pixmap>
           </property>
           <property name="scaledContents">
            <bool>true</bool>
@@ -92,7 +92,7 @@
      <x>0</x>
      <y>0</y>
      <width>1054</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -189,7 +189,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionReadBMScconf">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/motor_up.png</normaloff>:/res/icons/motor_up.png</iconset>
    </property>
    <property name="text">
@@ -201,7 +201,7 @@
   </action>
   <action name="actionReadBMScconfDefault">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/motor_default.png</normaloff>:/res/icons/motor_default.png</iconset>
    </property>
    <property name="text">
@@ -213,7 +213,7 @@
   </action>
   <action name="actionWriteBMScconf">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/motor_down.png</normaloff>:/res/icons/motor_down.png</iconset>
    </property>
    <property name="text">
@@ -225,7 +225,7 @@
   </action>
   <action name="actionSaveBMSConfXml">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
@@ -234,7 +234,7 @@
   </action>
   <action name="actionLoadBMSConfXml">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Open Folder-96.png</normaloff>:/res/icons/Open Folder-96.png</iconset>
    </property>
    <property name="text">
@@ -243,7 +243,7 @@
   </action>
   <action name="actionDisconnect">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Disconnected-96.png</normaloff>:/res/icons/Disconnected-96.png</iconset>
    </property>
    <property name="text">
@@ -255,7 +255,7 @@
   </action>
   <action name="actionReboot">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Restart-96.png</normaloff>:/res/icons/Restart-96.png</iconset>
    </property>
    <property name="text">
@@ -270,7 +270,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/can_off.png</normaloff>
      <normalon>:/res/icons/can_on.png</normalon>:/res/icons/can_off.png</iconset>
    </property>
@@ -283,7 +283,7 @@
   </action>
   <action name="actionReconnect">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Connected-96.png</normaloff>:/res/icons/Connected-96.png</iconset>
    </property>
    <property name="text">
@@ -298,7 +298,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/rt_off.png</normaloff>
      <normalon>:/res/icons/rt_on.png</normalon>:/res/icons/rt_off.png</iconset>
    </property>
@@ -311,7 +311,7 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Shutdown-96.png</normaloff>:/res/icons/Shutdown-96.png</iconset>
    </property>
    <property name="text">
@@ -320,19 +320,19 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>About MaxkGo-BMS Tool</string>
+    <string>About ENNOID-BMS Tool</string>
    </property>
    <property name="toolTip">
-    <string>About MaxkGo-BMS Tool</string>
+    <string>About ENNOID-BMS Tool</string>
    </property>
   </action>
   <action name="actionParameterEditorBMScconf">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Horizontal Settings Mixer-96.png</normaloff>:/res/icons/Horizontal Settings Mixer-96.png</iconset>
    </property>
    <property name="text">
@@ -341,7 +341,7 @@
   </action>
   <action name="actionSaveBMSConfigurationHeader">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
@@ -350,7 +350,7 @@
   </action>
   <action name="actionSaveBMSConfigurationHeaderWrap">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Save as-96.png</normaloff>:/res/icons/Save as-96.png</iconset>
    </property>
    <property name="text">
@@ -365,7 +365,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/rt_app_off.png</normaloff>
      <normalon>:/res/icons/rt_app_on.png</normalon>:/res/icons/rt_app_off.png</iconset>
    </property>
@@ -378,7 +378,7 @@
   </action>
   <action name="actionTerminalPrintFaults">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Console-96.png</normaloff>:/res/icons/Console-96.png</iconset>
    </property>
    <property name="text">
@@ -390,7 +390,7 @@
   </action>
   <action name="actionTerminalShowHelp">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Help-96.png</normaloff>:/res/icons/Help-96.png</iconset>
    </property>
    <property name="text">
@@ -399,7 +399,7 @@
   </action>
   <action name="actionTerminalClear">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Delete-96.png</normaloff>:/res/icons/Delete-96.png</iconset>
    </property>
    <property name="text">
@@ -408,7 +408,7 @@
   </action>
   <action name="actionTerminalPrintThreads">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Electronics-96.png</normaloff>:/res/icons/Electronics-96.png</iconset>
    </property>
    <property name="text">
@@ -423,7 +423,7 @@
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/alive_off.png</normaloff>
      <normalon>:/res/icons/alive_on.png</normalon>:/res/icons/alive_off.png</iconset>
    </property>
@@ -436,7 +436,7 @@
   </action>
   <action name="actionLibrariesUsed">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -445,7 +445,7 @@
   </action>
   <action name="actionAboutQt">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -457,7 +457,7 @@
   </action>
   <action name="actionParameterEditorInfo">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Horizontal Settings Mixer-96.png</normaloff>:/res/icons/Horizontal Settings Mixer-96.png</iconset>
    </property>
    <property name="text">
@@ -466,7 +466,7 @@
   </action>
   <action name="actionSafetyInformation">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -475,7 +475,7 @@
   </action>
   <action name="actionWarrantyStatement">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -487,19 +487,19 @@
   </action>
   <action name="actionDieBieMSToolChangelog">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>MaxkGo-BMS Tool Changelog</string>
+    <string>ENNOID-BMS Tool Changelog</string>
    </property>
    <property name="toolTip">
-    <string>MaxkGo-BMS Tool Changelog</string>
+    <string>ENNOID-BMS Tool Changelog</string>
    </property>
   </action>
   <action name="actionFirmwareChangelog">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -508,7 +508,7 @@
   </action>
   <action name="actionLicense">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
@@ -517,7 +517,7 @@
   </action>
   <action name="actionStoreBMScconf">
    <property name="icon">
-    <iconset resource="res.qrc">
+    <iconset resource="../../../Downloads/vesc_tool-master/res.qrc">
      <normaloff>:/res/icons/Save-96.png</normaloff>:/res/icons/Save-96.png</iconset>
    </property>
    <property name="text">
@@ -529,8 +529,6 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -1,1 +1,33 @@
+=== FW 1.4 ===
+* CAN_PACKET_ID & COMM_PACKET_ID are now inline with latest VESC-BMS commands
+
+=== FW 1.3 ===
+* Support for ENNOID-BMS-SS & ENNOID-BMS-SS-LITE
+* Humidity sensor support HTC1080 & SI7020/SHT21 on SS boards
+* Charger voltage readings on SS boards
+* SSD1306 display "Basic/Advanced" options
+* Many bug fixes
+
+=== FW 1.2 ===
+* Support for Expansion board
+
+=== FW 1.1 ===
+* Major code cleanup (Unused modules removed)
+* New charger voltage factor & offset measurement options
+* High current path (HC) related code from DiebieMS removed
+* "testbms" terminal command is now functional for testing slaves boards
+* Timeout charge retry is now up to 1000 seconds
+* Fixed toggle switch bug at charging
+* Fixed charging issue with same charge/discharge port
+* Default settings are now set for Master-LV
+* LTC6812 & LTC6813 complete support
+* Balancing mask are now all uint_32t for supporting LTC6813
+* Precharge : "persistent" option is now renamed to "forced"
+* Min/Max Charge & discharge temperatures protections are now functional
+* Support for new Master-HV onboard precharge relay on PC15
+* Slave board temperature measurement as been removed from battery temp statistics
+* Battery MAX can be now set to 120 celcius for disabling without error
+
+=== FW 1.0 ===
+* ENNOID-BMS Master initial release
 

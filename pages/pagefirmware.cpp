@@ -127,10 +127,7 @@ void PageFirmware::fwVersionReceived(int major, int minor, QString hw, QByteArra
 void PageFirmware::updateHwList(QString hw)
 {
     ui->hwList->clear();
-if(!hw.isEmpty())
-{
-    hw.replace("ENNOID","MaxkGo",Qt::CaseInsensitive);
-}
+
     QDirIterator it("://res/firmwares");
     while (it.hasNext()) {
         QFileInfo fi(it.next());

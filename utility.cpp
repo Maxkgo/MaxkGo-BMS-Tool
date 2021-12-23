@@ -184,7 +184,12 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>ENNOID-BMS Tool V%1</b><br>"
+    return tr("<b>MaxkGo-BMS Tool V%1</b><br>"
+              "Based on: VESC-Tool, DieBieMS-Tool and ENNOID-BMS-Tool<br>"
+              "&copy; Maxkgo<br>"
+              "<a href=\"https://maxkgo.com/\">https://maxkgo.com/</a><br>"
+              "<br>"
+              "<b>ENNOID-BMS Tool V%1</b><br>"
               "&copy; Kevin Dionne 2019<br>"
               "<a href=\"mailto:kevin.dionne@ennoid.me\">kevin.dionne@ennoid.me</a><br>"
               "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"

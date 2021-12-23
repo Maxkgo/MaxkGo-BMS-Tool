@@ -1426,7 +1426,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID style / ID byte order. This is configureable to stay compatible with the VESC style and the style used in an e-foil project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CAN_ID_STYLE</cDefine>
             <valInt>0</valInt>
-            <enumNames>ENNOID / DiebieMS / VESC</enumNames>
+            <enumNames>MaxkGo / ENNOID / DiebieMS / VESC</enumNames>
             <enumNames>EFoiler</enumNames>
         </CANIDStyle>
         <CANBaudRate>
@@ -1468,7 +1468,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>CAN_STATUS_PROTOCOL</cDefine>
             <valInt>1</valInt>
             <enumNames>None</enumNames>
-            <enumNames>ENNOID / DiebieMS</enumNames>
+            <enumNames>MaxkGo / ENNOID / DiebieMS</enumNames>
             <enumNames>MG Electronics</enumNames>
             <enumNames>VESC</enumNames>
         </emitStatusProtocolType>

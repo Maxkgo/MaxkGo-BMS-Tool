@@ -152,7 +152,7 @@ Item {
                                 fwItems.clear()
 
                                 for (var name in fws) {
-                                    if (name.toLowerCase().indexOf("ENNOID-BMS.bin") !== -1) {
+                                    if (name.toLowerCase().indexOf("MaxkGo-BMS.bin") !== -1) {
                                         fwItems.insert(0, { key: name, value: fws[name] })
                                     } else {
                                         fwItems.append({ key: name, value: fws[name] })
@@ -422,9 +422,9 @@ Item {
                                 if (fwItems.rowCount() === 0) {
                                     VescIf.emitMessageDialog(
                                                 "Upload Error",
-                                                "This version of ENNOID-BMS Tool does not include any firmware " +
+                                                "This version of MaxkGo-BMS Tool does not include any firmware " +
                                                 "for your hardware version. You can either " +
-                                                "upload a custom file or look for a later version of ENNOID-BMS " +
+                                                "upload a custom file or look for a later version of MaxkGo-BMS " +
                                                 "Tool that might support your hardware.",
                                                 false)
                                     return;
@@ -433,7 +433,7 @@ Item {
                                 if (hwItems.rowCount() === 1) {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
-                                            "Uploading new firmware will clear all settings on your ENNOID-BMS " +
+                                            "Uploading new firmware will clear all settings on your MaxkGo-BMS " +
                                             "and you have to do the configuration again. Do you want to " +
                                             "continue?"
                                     uploadDialog.open()
@@ -441,7 +441,7 @@ Item {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
                                             "Uploading firmware for the wrong hardware version " +
-                                            "WILL damage the ENNOID-BMS for sure. Are you sure that you have " +
+                                            "WILL damage the MaxkGo-BMS for sure. Are you sure that you have " +
                                             "chosen the correct hardware version?"
                                     uploadDialog.open()
                                 }
@@ -450,7 +450,7 @@ Item {
                                     uploadDialog.title = "Warning"
                                     uploadDialogLabel.text =
                                             "Uploading firmware for the wrong hardware version " +
-                                            "WILL damage the ENNOID-BMS for sure. Are you sure that you have " +
+                                            "WILL damage the MaxkGo-BMS for sure. Are you sure that you have " +
                                             "chosen the correct hardware version?"
                                     uploadDialog.open()
                                 } else {
@@ -463,7 +463,7 @@ Item {
                                 if (blItems.rowCount() === 0) {
                                     VescIf.emitMessageDialog(
                                                 "Upload Error",
-                                                "This version of ENNOID-BMS Tool does not include any bootloader " +
+                                                "This version of MaxkGo-BMS Tool does not include any bootloader " +
                                                 "for your hardware version.",
                                                 false)
                                     return;

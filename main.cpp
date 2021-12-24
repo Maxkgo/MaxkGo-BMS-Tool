@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     // Settings
     QCoreApplication::setOrganizationName("DieBie");
     QCoreApplication::setOrganizationDomain("diebie.nl");
-    QCoreApplication::setApplicationName("ENNOID-BMS Tool");
+    QCoreApplication::setApplicationName("MaxkGo-BMS Tool");
 
     // DPI settings
     // TODO: http://www.qcustomplot.com/index.php/support/forum/1344

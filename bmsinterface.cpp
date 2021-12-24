@@ -482,7 +482,7 @@ bool BMSInterface::connectSerial(QString port, int baudrate)
     (void)baudrate;
     emit messageDialog(tr("Connect serial"),
                        tr("Serial port support is not enabled in this build "
-                          "of ENNOID-BMS Tool."),
+                          "of MaxkGo-BMS Tool."),
                        false, false);
     return false;
 #endif
@@ -503,7 +503,7 @@ QList<VSerialInfo_t> BMSInterface::listSerialPorts()
 
         if(port.manufacturer().startsWith("Silicon")) {
             //info.name.insert(0, "ENNOID-BMS - ");
-            info.name.append(" - ENNOID-BMS");
+            info.name.append(" - MaxkGo-BMS");
             info.isVesc = true;
             index = 0;
         } else {
@@ -772,7 +772,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
 
     if (fwPairs.isEmpty()) {
         emit messageDialog(tr("Not Supported Firmwares"),
-                           tr("This version of ENNOID-BMS Tool does not seem to have any supported "
+                           tr("This version of MaxkGo-BMS Tool does not seem to have any supported "
                               "firmwares. Something is probably wrong with the BMS configuration "
                               "file."),
                            false, false);
@@ -792,13 +792,13 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(false);
         mFwRetries = 0;
         disconnectPort();
-        emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please update it using a programmer."), false, false);
+        emit messageDialog(tr("Error"), tr("The firmware on the connected MaxkGo-BMS is too old. Please update it using a programmer."), false, false);
     } else if (fw_connected > highest_supported) {
         mCommands->setLimitedMode(true);
         updateFwRx(true);
         if (!wasReceived) {
-            emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has newer firmware than this version of the"
-                                                " ENNOID-BMS Tool supports. It is recommended that you update the ENNOID-BMS"
+            emit messageDialog(tr("Warning"), tr("The connected MaxkGo-BMS has newer firmware than this version of the"
+                                                " MaxkGo-BMS Tool supports. It is recommended that you update the MaxkGo-BMS"
                                                 " Tool to the latest version. Alternatively, the firmware on"
                                                 " the connected ENNOID-BMS can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"
@@ -809,8 +809,8 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mCommands->setLimitedMode(true);
             updateFwRx(true);
             if (!wasReceived) {
-                emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has too old firmware. Since the"
-                                                    " connected ENNOID-BMS has firmware with bootloader support, it can be"
+                emit messageDialog(tr("Warning"), tr("The connected MaxkGo-BMS has too old firmware. Since the"
+                                                    " connected MaxkGo-BMS has firmware with bootloader support, it can be"
                                                     " updated from the Firmware page."
                                                     " Until then, limited communication mode will be used where only the"
                                                     " firmware can be changed."), false, false);
@@ -820,7 +820,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mFwRetries = 0;
             disconnectPort();
             if (!wasReceived) {
-                emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please"
+                emit messageDialog(tr("Error"), tr("The firmware on the connected MaxkGo-BMS is too old. Please"
                                                    " update it using a programmer."), false, false);
             }
         }
@@ -828,12 +828,12 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(true);
         if ((fw_connected < highest_supported)) {
             if (!wasReceived) {
-                //emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS is compatible, but old firmware. It is recommended that you update it."), false, false);
+                //emit messageDialog(tr("Warning"), tr("The connected MaxkGo-BMS is compatible, but old firmware. It is recommended that you update it."), false, false);
             }
         }
 
         QString fwStr;
-        fwStr.sprintf("ENNOID-BMS Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("MaxkGo-BMS Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }

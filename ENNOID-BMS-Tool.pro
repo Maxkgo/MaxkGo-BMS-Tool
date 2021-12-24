@@ -20,7 +20,7 @@ QMAKE_CXXFLAGS += -Wno-deprecated-copy
 #Build mobile GUI
 #CONFIG += build_mobile
 
-QMAKE_CXX = ccache g++
+#QMAKE_CXX = ccache g++
 
 # Bluetooth available
 DEFINES += HAS_BLUETOOTH

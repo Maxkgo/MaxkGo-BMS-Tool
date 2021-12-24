@@ -128,6 +128,11 @@ void PageFirmware::updateHwList(QString hw)
 {
     ui->hwList->clear();
 
+    if (!hw.isEmpty())
+    {
+        hw.replace("ENNOID", "MaxkGo", Qt::CaseInsensitive);
+    }
+
     QDirIterator it("://res/firmwares");
     while (it.hasNext()) {
         QFileInfo fi(it.next());
@@ -165,7 +170,7 @@ void PageFirmware::updateFwList()
         while (it.hasNext()) {
             QFileInfo fi(it.next());
             if (ui->showNonDefaultBox->isChecked() ||
-                    fi.fileName().toLower() == "ennoid-bms.bin") {
+                    fi.fileName().toLower() == "maxkgo-bms.bin") {
                 QListWidgetItem *item = new QListWidgetItem;
                 item->setText(fi.fileName());
                 item->setData(Qt::UserRole, fi.absoluteFilePath());
@@ -325,8 +330,8 @@ void PageFirmware::on_uploadButton_clicked()
         } else if (ui->fwTabWidget->currentIndex() == 2) {
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
-                                         tr("This will attempt to upload a bootloader to the connected ENNOID-BMS. "
-                                            "If the connected ENNOID-BMS already has a bootloader this will destroy "
+                                         tr("This will attempt to upload a bootloader to the connected MaxkGo-BMS. "
+                                            "If the connected MaxkGo-BMS already has a bootloader this will destroy "
                                             "the bootloader and firmware updates cannot be done anymore. Do "
                                             "you want to continue?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);

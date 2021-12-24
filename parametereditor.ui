@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>ENNOID-BMS Parameter Editor</string>
+   <string>MaxkGo-BMS Parameter Editor</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
@@ -1113,7 +1113,7 @@
      <x>0</x>
      <y>0</y>
      <width>1170</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

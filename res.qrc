@@ -124,12 +124,8 @@
         <file>res/config.xml</file>
         <file>res/logo_white.png</file>
         <file>res/bootloaders/generic.bin</file>
-        <file>res/firmwares/ENNOID-HV/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-LV/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-LV-2/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-SS/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-SS-24/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-SS-LITE/ENNOID-BMS.bin</file>
-        <file>res/firmwares/ENNOID-XLITE/ENNOID-BMS.bin</file>
+        <file>res/firmwares/MKBMS-LV-MINI/MKBMS-LV-MINI.bin</file>
+        <file>res/firmwares/MKBMS-SS-MINI/MKBMS-SS-MINI.bin</file>
+        <file>res/firmwares/MKBMS-SS-24S-MINI/MKBMS-SS-24S-MINI.bin</file>
     </qresource>
 </RCC>

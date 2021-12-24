@@ -135,7 +135,7 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *dieBieMS, QWidget *p
 void Utility::checkVersion(BMSInterface *dieBieMS)
 {
     QString version = QString::number(DT_VERSION);
-    QUrl url("https://raw.githubusercontent.com/EnnoidMe/ENNOID-BMS-Tool/ENNOID/res/ennoidbmstool-version.html");
+    QUrl url("https://esprobot.com/MaxkGo-BMS-Tool/maxkgobmstool-version.html");
     QNetworkAccessManager manager;
     QNetworkRequest request(url);
     QNetworkReply *reply = manager.get(request);
@@ -145,15 +145,15 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
     QString res = QString::fromUtf8(reply->readAll());
 
-    if (res.startsWith("ennoidbmstoolversion")) {
+    if (res.startsWith("maxkgobmstoolversion")) {
         res.remove(0, 20);
-        res.remove(res.indexOf("ennoidbmstoolversion"), res.size());
+        res.remove(res.indexOf("maxkgobmstoolversion"), res.size());
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
-                dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
+                dieBieMS->emitStatusMessage("A new version of MaxkGo-BMS Tool is available", true);
             } else {
-                qDebug() << "A new version of ENNOID-BMS Tool is available. Go to www.ennoid.me to download it"
+                qDebug() << "A new version of MaxkGo-BMS Tool is available. Go to www.esproot.com to download it"
                             "and get all the latest features.";
             }
         }

@@ -472,7 +472,7 @@ Item {
                                 uploadDialog.title = "Warning"
                                 uploadDialogLabel.text =
                                         "This will attempt to upload a bootloader to the connected VESC. " +
-                                        "If the connected ENNOID-BMS already has a bootloader this will destroy " +
+                                        "If the connected MaxkGo-BMS already has a bootloader this will destroy " +
                                         "the bootloader and firmware updates cannot be done anymore. Do " +
                                         "you want to continue?"
                                 uploadDialog.open()
